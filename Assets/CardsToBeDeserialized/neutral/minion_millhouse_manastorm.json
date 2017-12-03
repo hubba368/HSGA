@@ -1,0 +1,35 @@
+{
+	"id": "minion_millhouse_manastorm",
+	"name": "Millhouse Manastorm",
+	"baseManaCost": 2,
+	"type": "MINION",
+	"baseAttack": 4,
+	"baseHp": 4,
+	"heroClass": "ANY",
+	"rarity": "LEGENDARY",
+	"description": "Battlecry: Enemy spells cost (0) next turn.",
+	"battlecry": {
+		"spell": {
+			"class": "CardCostModifierSpell",
+			"target": "FRIENDLY_HERO",
+			"cardCostModifier": {
+				"class": "CardCostModifier",
+				"cardType": "SPELL",
+				"targetPlayer": "OPPONENT",
+				"operation": "SET",
+				"value": 0,
+				"expirationTrigger": {
+					"class": "TurnEndTrigger",
+					"targetPlayer": "OPPONENT"
+				}
+			}
+		},
+		"resolvedLate": false
+	},
+	"attributes": {
+		"BATTLECRY": true
+	},
+	"collectible": true,
+	"set": "CLASSIC",
+	"fileFormatVersion": 1
+}

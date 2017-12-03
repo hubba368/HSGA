@@ -1,0 +1,17 @@
+{
+	"id": "spell_deadly_shot",
+	"name": "Deadly Shot",
+	"baseManaCost": 3,
+	"type": "SPELL",
+	"heroClass": "HUNTER",
+	"rarity": "COMMON",
+	"description": "Destroy a random enemy minion.",
+	"targetSelection": "NONE",
+	"spell": {
+		"class": "DestroySpell",
+		"target": "ENEMY_MINIONS",
+		"randomTarget": true
+	},
+	"set": "CLASSIC",
+	"fileFormatVersion": 1
+}

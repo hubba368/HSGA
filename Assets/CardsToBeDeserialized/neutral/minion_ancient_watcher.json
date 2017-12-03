@@ -1,0 +1,16 @@
+{
+	"id": "minion_ancient_watcher",
+	"name": "Ancient Watcher",
+	"baseManaCost": 2,
+	"type": "MINION",
+	"baseAttack": 4,
+	"baseHp": 5,
+	"heroClass": "ANY",
+	"rarity": "RARE",
+	"description": "Can't Attack.",
+	"attributes": {
+		"CANNOT_ATTACK": true
+	},
+	"set": "CLASSIC",
+	"fileFormatVersion": 1
+}

@@ -1,0 +1,16 @@
+{
+	"id": "minion_frostwolf_grunt",
+	"name": "Frostwolf Grunt",
+	"baseManaCost": 2,
+	"type": "MINION",
+	"baseAttack": 2,
+	"baseHp": 2,
+	"heroClass": "ANY",
+	"rarity": "FREE",
+	"description": "Taunt",
+	"attributes": {
+		"TAUNT": true
+	},
+	"set": "CLASSIC",
+	"fileFormatVersion": 1
+}

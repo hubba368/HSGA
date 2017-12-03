@@ -1,0 +1,16 @@
+{
+	"id": "minion_ironbark_protector",
+	"name": "Ironbark Protector",
+	"baseManaCost": 8,
+	"type": "MINION",
+	"baseAttack": 8,
+	"baseHp": 8,
+	"heroClass": "DRUID",
+	"rarity": "FREE",
+	"description": "Taunt",
+	"attributes": {
+		"TAUNT": true
+	},
+	"set": "CLASSIC",
+	"fileFormatVersion": 1
+}

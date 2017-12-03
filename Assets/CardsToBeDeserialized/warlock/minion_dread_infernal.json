@@ -1,0 +1,26 @@
+{
+	"id": "minion_dread_infernal",
+	"name": "Dread Infernal",
+	"baseManaCost": 6,
+	"type": "MINION",
+	"baseAttack": 6,
+	"baseHp": 6,
+	"heroClass": "WARLOCK",
+	"rarity": "FREE",
+	"race": "DEMON",
+	"description": "Battlecry: Deal 1 damage to ALL other characters.",
+	"battlecry": {
+		"spell": {
+			"class": "DamageSpell",
+			"target": "ALL_OTHER_CHARACTERS",
+			"value": 1
+		},
+		"resolvedLate": false
+	},
+	"attributes": {
+		"BATTLECRY": true
+	},
+	"collectible": true,
+	"set": "CLASSIC",
+	"fileFormatVersion": 1
+}

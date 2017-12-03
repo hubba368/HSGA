@@ -1,0 +1,17 @@
+{
+	"id": "minion_king_krush",
+	"name": "King Krush",
+	"baseManaCost": 9,
+	"type": "MINION",
+	"baseAttack": 8,
+	"baseHp": 8,
+	"heroClass": "HUNTER",
+	"rarity": "LEGENDARY",
+	"race": "BEAST",
+	"description": "Charge",
+	"attributes": {
+		"CHARGE": true
+	},
+	"set": "CLASSIC",
+	"fileFormatVersion": 1
+}

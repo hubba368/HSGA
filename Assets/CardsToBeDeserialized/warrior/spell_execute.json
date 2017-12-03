@@ -1,0 +1,19 @@
+{
+	"id": "spell_execute",
+	"name": "Execute",
+	"baseManaCost": 1,
+	"type": "SPELL",
+	"heroClass": "WARRIOR",
+	"rarity": "FREE",
+	"description": "Destroy a damaged enemy minion.",
+	"targetSelection": "ENEMY_MINIONS",
+	"spell": {
+		"class": "DestroySpell",
+		"filter": {
+			"class": "DamagedFilter"
+		}
+	},
+	"collectible": true,
+	"set": "CLASSIC",
+	"fileFormatVersion": 1
+}

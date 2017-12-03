@@ -1,0 +1,17 @@
+{
+	"id": "spell_flamestrike",
+	"name": "Flamestrike",
+	"baseManaCost": 7,
+	"type": "SPELL",
+	"heroClass": "MAGE",
+	"rarity": "FREE",
+	"description": "Deal 4 damage to all enemy minions.",
+	"targetSelection": "NONE",
+	"spell": {
+		"class": "DamageSpell",
+		"target": "ENEMY_MINIONS",
+		"value": 4
+	},
+	"set": "CLASSIC",
+	"fileFormatVersion": 1
+}

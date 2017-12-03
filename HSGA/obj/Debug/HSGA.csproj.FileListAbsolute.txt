@@ -1,0 +1,16 @@
+C:\Users\Elliott\Documents\Visual Studio 2017\Projects\HSGA\HSGA\obj\Debug\HSGA.csprojResolveAssemblyReference.cache
+C:\Users\Elliott\Documents\Visual Studio 2017\Projects\HSGA\HSGA\obj\Debug\HSGA.Form1.resources
+C:\Users\Elliott\Documents\Visual Studio 2017\Projects\HSGA\HSGA\obj\Debug\HSGA.Properties.Resources.resources
+C:\Users\Elliott\Documents\Visual Studio 2017\Projects\HSGA\HSGA\obj\Debug\HSGA.csproj.GenerateResource.Cache
+C:\Users\Elliott\Documents\Visual Studio 2017\Projects\HSGA\HSGA\bin\Debug\HSGA.exe.config
+C:\Users\Elliott\Documents\Visual Studio 2017\Projects\HSGA\HSGA\bin\Debug\HSGA.exe
+C:\Users\Elliott\Documents\Visual Studio 2017\Projects\HSGA\HSGA\bin\Debug\HSGA.pdb
+C:\Users\Elliott\Documents\Visual Studio 2017\Projects\HSGA\HSGA\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Elliott\Documents\Visual Studio 2017\Projects\HSGA\HSGA\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Elliott\Documents\Visual Studio 2017\Projects\HSGA\HSGA\obj\Debug\HSGA.exe
+C:\Users\Elliott\Documents\Visual Studio 2017\Projects\HSGA\HSGA\obj\Debug\HSGA.pdb
+C:\Users\Elliott\Documents\Visual Studio 2017\Projects\HSGA\HSGA\bin\Debug\Microsoft.WindowsAPICodePack.dll
+C:\Users\Elliott\Documents\Visual Studio 2017\Projects\HSGA\HSGA\bin\Debug\Microsoft.WindowsAPICodePack.ExtendedLinguisticServices.dll
+C:\Users\Elliott\Documents\Visual Studio 2017\Projects\HSGA\HSGA\bin\Debug\Microsoft.WindowsAPICodePack.Sensors.dll
+C:\Users\Elliott\Documents\Visual Studio 2017\Projects\HSGA\HSGA\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\Elliott\Documents\Visual Studio 2017\Projects\HSGA\HSGA\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.dll

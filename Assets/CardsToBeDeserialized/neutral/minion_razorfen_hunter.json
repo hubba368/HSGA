@@ -1,0 +1,25 @@
+{
+	"id": "minion_razorfen_hunter",
+	"name": "Razorfen Hunter",
+	"baseManaCost": 3,
+	"type": "MINION",
+	"baseAttack": 2,
+	"baseHp": 3,
+	"heroClass": "ANY",
+	"rarity": "FREE",
+	"description": "Battlecry: Summon a 1/1 Boar.",
+	"battlecry": {
+		"spell": {
+			"class": "SummonSpell",
+			"card": "token_boar",
+			"boardPositionRelative": "RIGHT"
+		},
+		"resolvedLate": false
+	},
+	"attributes": {
+		"BATTLECRY": true
+	},
+	"collectible": true,
+	"set": "CLASSIC",
+	"fileFormatVersion": 1
+}

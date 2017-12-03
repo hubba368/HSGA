@@ -1,0 +1,20 @@
+{
+	"id": "spell_ancestral_spirit",
+	"name": "Ancestral Spirit",
+	"baseManaCost": 2,
+	"type": "SPELL",
+	"heroClass": "SHAMAN",
+	"rarity": "RARE",
+	"description": "Give a minion 'Deathrattle: Resummon this minion.'",
+	"targetSelection": "MINIONS",
+	"spell": {
+		"class": "AddDeathrattleSpell",
+		"spell": {
+			"class": "ReviveMinionSpell",
+			"target": "SELF"
+		}
+	},
+	"collectible": true,
+	"set": "CLASSIC",
+	"fileFormatVersion": 1
+}

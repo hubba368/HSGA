@@ -1,0 +1,13 @@
+{
+	"id": "minion_river_crocolisk",
+	"name": "River Crocolisk",
+	"baseManaCost": 2,
+	"type": "MINION",
+	"baseAttack": 2,
+	"baseHp": 3,
+	"heroClass": "ANY",
+	"rarity": "FREE",
+	"race": "BEAST",
+	"set": "CLASSIC",
+	"fileFormatVersion": 1
+}

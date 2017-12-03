@@ -1,0 +1,25 @@
+{
+	"id": "minion_succubus",
+	"name": "Succubus",
+	"baseManaCost": 2,
+	"type": "MINION",
+	"baseAttack": 4,
+	"baseHp": 3,
+	"heroClass": "WARLOCK",
+	"rarity": "FREE",
+	"race": "DEMON",
+	"description": "Battlecry: Discard a random card.",
+	"battlecry": {
+		"spell": {
+			"class": "DiscardSpell",
+			"value": 1
+		},
+		"resolvedLate": false
+	},
+	"attributes": {
+		"BATTLECRY": true
+	},
+	"collectible": true,
+	"set": "CLASSIC",
+	"fileFormatVersion": 1
+}

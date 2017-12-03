@@ -1,0 +1,13 @@
+{
+	"id": "minion_core_hound",
+	"name": "Core Hound",
+	"baseManaCost": 7,
+	"type": "MINION",
+	"baseAttack": 9,
+	"baseHp": 5,
+	"heroClass": "ANY",
+	"rarity": "FREE",
+	"race": "BEAST",
+	"set": "CLASSIC",
+	"fileFormatVersion": 1
+}

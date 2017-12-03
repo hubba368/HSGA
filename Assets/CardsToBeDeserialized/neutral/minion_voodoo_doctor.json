@@ -1,0 +1,25 @@
+{
+	"id": "minion_voodoo_doctor",
+	"name": "Voodoo Doctor",
+	"baseManaCost": 1,
+	"type": "MINION",
+	"baseAttack": 2,
+	"baseHp": 1,
+	"heroClass": "ANY",
+	"rarity": "FREE",
+	"description": "Battlecry: Restore 2 Health.",
+	"battlecry": {
+		"targetSelection": "ANY",
+		"spell": {
+			"class": "HealSpell",
+			"value": 2
+		},
+		"resolvedLate": false
+	},
+	"attributes": {
+		"BATTLECRY": true
+	},
+	"collectible": true,
+	"set": "CLASSIC",
+	"fileFormatVersion": 1
+}

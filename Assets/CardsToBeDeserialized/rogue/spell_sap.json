@@ -1,0 +1,15 @@
+{
+	"id": "spell_sap",
+	"name": "Sap",
+	"baseManaCost": 2,
+	"type": "SPELL",
+	"heroClass": "ROGUE",
+	"rarity": "FREE",
+	"description": "Return an enemy minion to your opponent's hand.",
+	"targetSelection": "ENEMY_MINIONS",
+	"spell": {
+		"class": "ReturnMinionToHandSpell"
+	},
+	"set": "CLASSIC",
+	"fileFormatVersion": 1
+}

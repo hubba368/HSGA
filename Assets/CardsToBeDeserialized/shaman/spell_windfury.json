@@ -1,0 +1,16 @@
+{
+	"id": "spell_WINDFURY",
+	"name": "Windfury",
+	"baseManaCost": 2,
+	"type": "SPELL",
+	"heroClass": "SHAMAN",
+	"rarity": "FREE",
+	"description": "Give a minion Windfury.",
+	"targetSelection": "MINIONS",
+	"spell": {
+		"class": "AddAttributeSpell",
+		"attribute": "WINDFURY"
+	},
+	"set": "CLASSIC",
+	"fileFormatVersion": 1
+}
