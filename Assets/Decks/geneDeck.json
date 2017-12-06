@@ -1,38 +1,36 @@
 {
   "cards": [
-	"minion_wind-up_burglebot", 
-	"minion_murloc_warleader", 
-	"minion_coldlight_oracle", 
-	"minion_goldshire_footman", 
-	"minion_boulderfist_ogre", 
-	"minion_elven_archer", 
-	"minion_the_black_knight", 
-	"minion_ancient_brewmaster", 
-	"minion_prince_malchezaar", 
-	"minion_nightblade", 
-	"minion_mana_wraith", 
-	"minion_abusive_sergeant", 
-	"minion_questing_adventurer", 
-	"minion_acidic_swamp_ooze", 
-	"minion_doppelgangster", 
-	"minion_stormwind_knight", 
-	"minion_harrison_jones", 
-	"minion_coldlight_oracle", 
-	"minion_silvermoon_guardian", 
-	"minion_southsea_deckhand", 
-	"minion_murloc_tidehunter", 
-	"minion_acidic_swamp_ooze", 
-	"minion_mana_addict", 
-	"minion_hogger", 
-	"minion_baron_geddon", 
-	"minion_twilight_drake", 
-	"minion_pint-sized_summoner", 
-	"minion_wrathion", 
-	"minion_book_wyrm", 
-	"minion_ysera", 
-	"minion_jungle_panther"
+	"spell_maelstrom_portal"
+	"spell_lava_burst"
+	"spell_rockbiter_weapon"
+	"minion_unbound_elemental"
+	"spell_lightning_storm"
+	"minion_dust_devil"
+	"weapon_doomhammer"
+	"spell_finders_keepers"
+	"spell_jade_lightning"
+	"spell_hex"
+	"spell_far_sight"
+	"spell_frost_shock"
+	"spell_lava_burst"
+	"minion_unbound_elemental"
+	"minion_white_eyes"
+	"spell_call_in_the_finishers"
+	"weapon_spirit_claws"
+	"weapon_stormforged_axe"
+	"spell_call_in_the_finishers"
+	"minion_wind-up_burglebot"
+	"spell_lightning_bolt"
+	"spell_frost_shock"
+	"minion_darkscale_healer"
+	"spell_jade_lightning"
+	"minion_windspeaker"
+	"minion_arcane_golem"
+	"spell_lightning_storm"
+	"minion_lotus_illusionist"
+	"minion_blood_knight"
   ],
-  "name": "geneDeck",
-  "heroClass": "WARLOCK",
-  "arbitrary": false
+    "name": "geneDeck",
+    "heroClass": "SHAMAN",
+    "arbitrary": false
 }

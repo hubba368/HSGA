@@ -33,5 +33,87 @@ namespace HSGA
             WarlockCardList = new List<Card>();
             WarriorCardList = new List<Card>();
         }
+
+        public void Choose(string type, Card card)
+        {
+            switch (type)
+            {
+                case "DRUID":
+                    DruidCardList.Add(card);
+                    break;
+
+                case "HUNTER":
+                    HunterCardList.Add(card);
+                    break;
+
+                case "MAGE":
+                    MageCardList.Add(card);
+                    break;
+
+                case "PALADIN":
+                    PaladinCardList.Add(card);
+                    break;
+
+                case "PRIEST":
+                    PriestCardList.Add(card);
+                    break;
+
+                case "ROGUE":
+                    RogueCardList.Add(card);
+                    break;
+
+                case "SHAMAN":
+                    ShamanCardList.Add(card);
+                    break;
+
+                case "WARRIOR":
+                    WarriorCardList.Add(card);
+                    break;
+
+                case "WARLOCK":
+                    WarlockCardList.Add(card);
+                    break;
+
+                default:
+                    NeutralCardList.Add(card);
+                    break;
+            }
+        }
+
+        public List<Card> ChooseSpecificList(string type)
+        {
+            switch (type)
+            {
+                case "DRUID":
+                    return DruidCardList;      
+
+                case "HUNTER":
+                    return HunterCardList;
+
+                case "MAGE":
+                    return MageCardList;
+
+                case "PALADIN":
+                    return PaladinCardList;
+
+                case "PRIEST":
+                    return PriestCardList;
+
+                case "ROGUE":
+                    return RogueCardList;
+
+                case "SHAMAN":
+                    return ShamanCardList;
+
+                case "WARRIOR":
+                    return WarriorCardList;
+
+                case "WARLOCK":
+                    return WarlockCardList;
+
+                default:
+                    return NeutralCardList;
+            }
+        }
     }
 }
