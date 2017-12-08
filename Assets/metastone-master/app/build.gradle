@@ -1,0 +1,47 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+apply plugin: 'javafx-gradle-plugin'
+
+buildscript {
+    dependencies {
+        classpath group: 'de.dynamicfiles.projects.gradle.plugins', name: 'javafx-gradle-plugin', version: '8.8.2'
+    }
+    repositories {
+        jcenter()
+    }
+}
+
+mainClassName = 'net.demilich.metastone.MetaStone'
+
+jar {
+	manifest {
+		attributes 'Implementation-Title': rootProject.name.capitalize(),
+			'Implementation-Version': project.version
+	}
+}
+
+dependencies {
+	compile project(':game')
+	compile project(':cards')
+	compile files('lib/controlsfx-8.40.10-20151003.010657-492.jar')
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
+	compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5'
+	testCompile group: 'org.testng', name: 'testng', version: '6.+'
+}
+
+jfx {
+    // minimal requirement for jfxJar-task
+    mainClass = 'JavaFXDemo'
+    
+    // minimal requirement for jfxNative-task
+    vendor = ''
+}
+
+test {
+	// enable TestNG support (default is JUnit)
+	useTestNG()
+	testLogging {
+		events "standardError"
+	}
+}
