@@ -15,7 +15,8 @@ namespace HSGA
     public partial class Form1 : Form
     {
         public string initialDirectory = "C:\\Users\\Elliott\\Documents\\Visual Studio 2017\\Projects\\HSGA\\Assets\\CardsToBeDeserialized";
-        public string deckDirectory = "C:\\Users\\Elliott\\Documents\\Visual Studio 2017\\Projects\\HSGA\\Assets\\Decks"; //needs to be changed to metastone folder
+        public string deckDirectory = "C:\\Users\\Elliott\\Documents\\Visual Studio 2017\\Projects\\metastone-master\\cards" +
+            "src\\main\\resources\\decks";
         public CardJsonManager JSONHandler;
 
         private string selectedClass;

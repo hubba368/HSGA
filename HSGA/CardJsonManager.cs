@@ -17,7 +17,7 @@ namespace HSGA
     // Implement deck legality checking - card counts/rarity and class types - done
     // Implement the rest of the class specific cards into their respective lists - done
     // Construction of randomly chosen class decks - done 
-    // Construction of specifically chosen class decks - in progress
+    // Construction of specifically chosen class decks - done
 
     ///////////TODO/////////// - In order of most needed to be done
     // save the deck files in Metastone directory
