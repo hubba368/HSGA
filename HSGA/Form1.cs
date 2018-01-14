@@ -26,6 +26,8 @@ namespace HSGA
             InitializeComponent();
             //should init json manager here
             JSONHandler = new CardJsonManager();
+
+           // initialDirectory = Directory.GetCurrentDirectory();
         }
 
         private void GetAllCards_Click(object sender, EventArgs e)

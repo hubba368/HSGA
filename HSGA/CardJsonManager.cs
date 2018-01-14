@@ -20,10 +20,14 @@ namespace HSGA
     // Construction of specifically chosen class decks - done
 
     ///////////TODO/////////// - In order of most needed to be done
-    // save the deck files in Metastone directory
-    // Retrieve end of sim statistics from metastone
+    // implement gen algo requirements: 
+    //  - need to implement Individual class
+    //  - Fitness, crossover, mutation function
     // Implement the genetic algorithm!!!!
+    // save the deck files in Metastone directory - change to auto find deck directory
+    // Retrieve end of sim statistics from metastone
     // Automate the generation process - including the metastone testing
+    // may need to change card retrieval to get mana cost
 
     /////QOL IMPROVEMENTS/////
     // Allow resetting of the current displayed deck
