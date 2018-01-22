@@ -16,7 +16,11 @@ namespace HSGA
     // file name - need this as there are some card files that have
     // no card ID, however the ID is the name of the file instead
 
-
+    /// <summary>
+    /// Class that represents a MetaStone card.
+    /// Not all the data that MetaStone stores is required here,
+    /// As it does not help with the deck construction process.
+    /// </summary>
     public class Card
     {
         public string _CardID { get; set; }

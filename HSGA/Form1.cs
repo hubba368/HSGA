@@ -16,8 +16,12 @@ namespace HSGA
     {
         public string initialDirectory = "C:\\Users\\Elliott\\Documents\\Visual Studio 2017\\Projects\\HSGA\\Assets\\CardsToBeDeserialized";
         public string deckDirectory = "C:\\Users\\Elliott\\Documents\\Visual Studio 2017\\Projects\\metastone-master\\cards" +
-            "src\\main\\resources\\decks";
+            "\\src\\main\\resources\\decks";
+
         public CardJsonManager JSONHandler;
+
+        public HSGAIndividual GeneIndividual;
+        public List<HSGAIndividual> GenePopulation;
 
         private string selectedClass;
 
@@ -26,6 +30,8 @@ namespace HSGA
             InitializeComponent();
             //should init json manager here
             JSONHandler = new CardJsonManager();
+            GenePopulation = new List<HSGAIndividual>();
+            GeneIndividual = new HSGAIndividual();
 
            // initialDirectory = Directory.GetCurrentDirectory();
         }
@@ -55,8 +61,8 @@ namespace HSGA
         {
             selectedClass = comboBox1.GetItemText(comboBox1.SelectedItem);
             JSONHandler.filePath = deckDirectory;
-            JSONHandler.GenerateSpecificDeck(selectedClass);
-
+            // JSONHandler.GenerateSpecificDeck(selectedClass);
+            GeneIndividual.deck = JSONHandler.GenerateSpecificDeck(selectedClass);
             NeutralPathLabel.Text = JSONHandler.finalGeneratedDeck;
             label1.Text = JSONHandler.cardCount.ToString();
         }

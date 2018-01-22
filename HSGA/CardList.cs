@@ -7,6 +7,10 @@ using Newtonsoft.Json;
 
 namespace HSGA
 {
+    /// <summary>
+    /// Class that stores all the cards for each hero class.
+    /// This is initialised first.
+    /// </summary>
     public class CardList
     {
         public List<Card> NeutralCardList;
@@ -33,7 +37,7 @@ namespace HSGA
             WarlockCardList = new List<Card>();
             WarriorCardList = new List<Card>();
         }
-
+        //Function to choose a hero class for specific card types.
         public void Choose(string type, Card card)
         {
             switch (type)
@@ -80,6 +84,7 @@ namespace HSGA
             }
         }
 
+        //Function to choose a hero class for deck generation.
         public List<Card> ChooseSpecificList(string type)
         {
             switch (type)

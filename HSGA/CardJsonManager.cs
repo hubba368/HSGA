@@ -79,6 +79,7 @@ namespace HSGA
         }
         //{\n \"cards\": [\n  ],\n \"name\": \n \"heroClass\" \n \"arbitrary\": false\n}
 
+        //Generates a random valid deck with a random hero class.
         public void GenerateRandomDeck()
         {
             List<Card> cardList = new List<Card>();
@@ -156,9 +157,11 @@ namespace HSGA
             }
         }
 
-
-        public void GenerateSpecificDeck(string heroClass)
+        //Generates a valid deck of specific hero class.
+        public string GenerateSpecificDeck(string heroClass)
         {
+            string finalDeckString = "";
+
             List<Card> cardList = new List<Card>();
             int index = 0;
             Card currentCard = new Card("", "", "", "", "");
@@ -207,7 +210,7 @@ namespace HSGA
                     finalGeneratedDeck = "{\n  \"cards\": [\n" + finalGeneratedDeckCardList + "  ],\n    \"name\": \"" + finalGeneratedDeckName + "\",\n    \"heroClass\": \"" + finalGeneratedDeckClass + "\",\n    \"arbitrary\": false\n}";
                     GenerateDeckAsJson(finalGeneratedDeck, filePath);
 
-                    return;
+
                 }
 
                 //grab a card at psuedo random 
@@ -227,10 +230,13 @@ namespace HSGA
                 cardCount++;
             }
 
-
+            finalDeckString = finalGeneratedDeck;
+            return finalDeckString;
 
         }
 
+        //Validates the input card list by checking if the deck has max 2 per card,
+        //or 1 per card of legendary rarity.
         private List<Card> ValidateDeck(List<Card> cardList)
         {
             // We need to validate the deck, to make sure that there are no more than
@@ -288,7 +294,7 @@ namespace HSGA
             return cardList;
         }
 
-
+        //Generates the final deck into a valid JSON string that MetaStone can parse.
         private void GenerateDeckAsJson(string deckString, string filePath)
         {
             using(StreamWriter file = File.CreateText(filePath + "\\geneDeck.json"))
@@ -375,7 +381,7 @@ namespace HSGA
             
         }
 
-
+        //Retrieves all cards of a specific class.
         public void GetAllSelectedCards(string filePath, string cardClass)
         {
             // get all card files in the current directory
