@@ -11,7 +11,7 @@
 
 # Need to ignore Metastone files that aren't being used.
 MetaStone Source/
-packages/
+
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
