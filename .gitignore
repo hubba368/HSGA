@@ -9,6 +9,9 @@
 *.userosscache
 *.sln.docstates
 
+# Need to ignore Metastone files that aren't being used.
+MetaStone Source/
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
