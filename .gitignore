@@ -13,7 +13,7 @@
 # Need to ignore Metastone files that aren't being used.
 # Need to 'un-ignore' each directory leading to files that have been edited by me.
 #
-!MetaStone Source/
+MetaStone Source/
 
 MetaStone Source/*
 !MetaStone Source/metastone-master/
