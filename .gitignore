@@ -10,8 +10,41 @@
 *.sln.docstates
 
 # Need to ignore Metastone files that aren't being used.
-MetaStone Source/
+# Need to 'un-ignore' each directory leading to files that have been edited by me.
+!MetaStone Source/
 
+MetaStone Source/*
+!MetaStone Source/metastone-master/
+
+MetaStone Source/metastone-master/*
+!MetaStone Source/metastone-master/app/
+
+MetaStone Source/metastone-master/app/*
+!MetaStone Source/metastone-master/app/src/
+
+MetaStone Source/metastone-master/app/src/*
+!MetaStone Source/metastone-master/app/src/main/
+
+MetaStone Source/metastone-master/app/src/main/*
+!MetaStone Source/metastone-master/app/src/main/java/
+
+MetaStone Source/metastone-master/app/src/main/java/*
+!MetaStone Source/metastone-master/app/src/main/java/net/
+
+MetaStone Source/metastone-master/app/src/main/java/net/*
+!MetaStone Source/metastone-master/app/src/main/java/net/
+
+MetaStone Source/metastone-master/app/src/main/java/net/demilich/*
+!MetaStone Source/metastone-master/app/src/main/java/net/demilich/
+
+MetaStone Source/metastone-master/app/src/main/java/net/demilich/metastone/*
+!MetaStone Source/metastone-master/app/src/main/java/net/demilich/metastone/
+
+MetaStone Source/metastone-master/app/src/main/java/net/demilich/metastone/gui/*
+!MetaStone Source/metastone-master/app/src/main/java/net/demilich/metastone/gui/
+
+MetaStone Source/metastone-master/app/src/main/java/net/demilich/metastone/gui/simulationmode/*
+!MetaStone Source/metastone-master/app/src/main/java/net/demilich/metastone/gui/simulationmode/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
