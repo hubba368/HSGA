@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Microsoft.WindowsAPICodePack.Dialogs;
+using System.Diagnostics;
 
 namespace HSGA
 {
@@ -85,6 +86,29 @@ namespace HSGA
 
             //deserialize all in directory
             JSONHandler.GetAllSelectedCards(currentPath, selectedClass);
+        }
+
+        private void GenButton_Click(object sender, EventArgs e)
+        {
+            //Using a process object to allow for multiple commands to be 
+            //input into the command line process.
+            Process p = new Process();
+            ProcessStartInfo info = new ProcessStartInfo();
+            info.FileName = "CMD.exe";
+            info.RedirectStandardInput = true;
+            info.UseShellExecute = false;
+
+            p.StartInfo = info;
+            p.Start();
+
+            using (StreamWriter sw = p.StandardInput)
+            {
+                if (sw.BaseStream.CanWrite)
+                {
+                    sw.WriteLine("cd C:\\Users\\Elliott\\Desktop\\DissertationProjects2017_18\\metastone-master");
+                    sw.WriteLine("gradlew run");
+                }
+            }
         }
     }
 }

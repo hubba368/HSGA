@@ -79,7 +79,11 @@ namespace HSGA
         }
         //{\n \"cards\": [\n  ],\n \"name\": \n \"heroClass\" \n \"arbitrary\": false\n}
 
-        //Generates a random valid deck with a random hero class.
+
+        /// <summary>
+        /// Generates a random valid deck with a random hero class.
+        /// Not very useful for the overall project but added as an extra function.
+        /// </summary>
         public void GenerateRandomDeck()
         {
             List<Card> cardList = new List<Card>();
@@ -157,7 +161,11 @@ namespace HSGA
             }
         }
 
-        //Generates a valid deck of specific hero class.
+        /// <summary>
+        /// Generates a valid deck of specific hero class.
+        /// </summary>
+        /// <param name="heroClass"></param>
+        /// <returns></returns>
         public string GenerateSpecificDeck(string heroClass)
         {
             string finalDeckString = "";
@@ -235,8 +243,13 @@ namespace HSGA
 
         }
 
-        //Validates the input card list by checking if the deck has max 2 per card,
-        //or 1 per card of legendary rarity.
+
+        /// <summary>
+        /// Validates the input card list by checking if the deck has max 2 per card,
+        /// or 1 per card of legendary rarity.
+        /// </summary>
+        /// <param name="cardList"></param>
+        /// <returns></returns>
         private List<Card> ValidateDeck(List<Card> cardList)
         {
             // We need to validate the deck, to make sure that there are no more than
@@ -294,7 +307,12 @@ namespace HSGA
             return cardList;
         }
 
-        //Generates the final deck into a valid JSON string that MetaStone can parse.
+
+        /// <summary>
+        /// Generates the final deck into a valid JSON string that MetaStone can parse.
+        /// </summary>
+        /// <param name="deckString"></param>
+        /// <param name="filePath"></param>
         private void GenerateDeckAsJson(string deckString, string filePath)
         {
             using(StreamWriter file = File.CreateText(filePath + "\\geneDeck.json"))
@@ -305,7 +323,12 @@ namespace HSGA
         }
 
 
-        // This should be the default option
+        /// <summary>
+        /// Function to retreive all cards from the Assets folder of the project.
+        /// This is the default option and is called when the program is first started.
+        /// </summary>
+        /// <param name="fileCount"></param>
+        /// <param name="initialPath"></param>
         public void GetAllCards(int fileCount, string initialPath)
         {
             // go through all Card Folders
@@ -381,7 +404,14 @@ namespace HSGA
             
         }
 
-        //Retrieves all cards of a specific class.
+
+        /// <summary>
+        /// Retrieves all cards of a specific class.
+        /// Not inherently useful for the overall project, but kept as an extra
+        /// function.
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <param name="cardClass"></param>
         public void GetAllSelectedCards(string filePath, string cardClass)
         {
             // get all card files in the current directory
@@ -434,6 +464,11 @@ namespace HSGA
     }
 
         //DEBUG FUNCTIONS//
+
+        /// <summary>
+        /// Test function to test the previous function ValidateDeck.
+        /// </summary>
+        /// <returns></returns>
         public string TestValidation()
         {
             List<Card> testDeck = new List<Card>();
