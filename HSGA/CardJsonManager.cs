@@ -18,14 +18,14 @@ namespace HSGA
     // Implement the rest of the class specific cards into their respective lists - done
     // Construction of randomly chosen class decks - done 
     // Construction of specifically chosen class decks - done
+    // Retrieve end of sim statistics from metastone - DONE    
+    //  - need to implement Individual class - DONE - requires fitness value variables
 
     ///////////TODO/////////// - In order of most needed to be done
     // implement gen algo requirements: 
-    //  - need to implement Individual class
     //  - Fitness, crossover, mutation function
     // Implement the genetic algorithm!!!!
-    // save the deck files in Metastone directory - change to auto find deck directory
-    // Retrieve end of sim statistics from metastone
+    // save the deck files in Metastone directory - change to auto find deck directory - can be worked around by having the metastone program in same folder as this solution.
     // Automate the generation process - including the metastone testing
     // may need to change card retrieval to get mana cost
 
@@ -39,7 +39,7 @@ namespace HSGA
 
     /// <summary>
     /// Class for handling JSON serialization/deserialization.
-    /// Should use this to deserialize all cards to be used.
+    /// This is used this to deserialize all cards to be used.
     /// </summary>
     public class CardJsonManager
     {
