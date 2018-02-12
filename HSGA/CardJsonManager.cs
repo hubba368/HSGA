@@ -169,6 +169,7 @@ namespace HSGA
         public string GenerateSpecificDeck(string heroClass)
         {
             string finalDeckString = "";
+            finalGeneratedDeckCardList = "";
 
             List<Card> cardList = new List<Card>();
             int index = 0;
@@ -215,10 +216,13 @@ namespace HSGA
 
                     finalGeneratedDeckClass = currentType;
                     // assemble the json string
-                    finalGeneratedDeck = "{\n  \"cards\": [\n" + finalGeneratedDeckCardList + "  ],\n    \"name\": \"" + finalGeneratedDeckName + "\",\n    \"heroClass\": \"" + finalGeneratedDeckClass + "\",\n    \"arbitrary\": false\n}";
-                    GenerateDeckAsJson(finalGeneratedDeck, filePath);
+                    string finalDeck = "";
+                    finalDeck = "{\n  \"cards\": [\n" + finalGeneratedDeckCardList + "  ],\n    \"name\": \"" 
+                        + finalGeneratedDeckName + "\",\n    \"heroClass\": \"" 
+                        + finalGeneratedDeckClass + "\",\n    \"arbitrary\": false\n}";
+                    GenerateDeckAsJson(finalDeck, filePath);
 
-
+                    finalGeneratedDeck = finalDeck;
                 }
 
                 //grab a card at psuedo random 
@@ -256,6 +260,11 @@ namespace HSGA
             // 2 of each card or 1 for each legendary card
             int prevCardCount = 0;
             int newCardIndex = 0;
+
+            if(cardList.Count > 30)
+            {
+                cardList.Remove(cardList.ElementAt(30));
+            }
 
             for (int j = 0; j < cardList.Count - 1; j++)
             {
@@ -315,6 +324,12 @@ namespace HSGA
         /// <param name="filePath"></param>
         private void GenerateDeckAsJson(string deckString, string filePath)
         {
+            if(File.Exists(filePath + "\\geneDeck.json"))
+            {
+                
+                File.Delete(filePath + "\\geneDeck.json");
+            }
+                       
             using(StreamWriter file = File.CreateText(filePath + "\\geneDeck.json"))
             using(JsonTextWriter writer = new JsonTextWriter(file))
             {

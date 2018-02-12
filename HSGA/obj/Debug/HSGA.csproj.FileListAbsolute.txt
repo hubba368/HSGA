@@ -14,4 +14,3 @@ C:\Users\Elliott\Documents\Visual Studio 2017\Projects\HSGA\HSGA\bin\Debug\Micro
 C:\Users\Elliott\Documents\Visual Studio 2017\Projects\HSGA\HSGA\bin\Debug\Microsoft.WindowsAPICodePack.Sensors.dll
 C:\Users\Elliott\Documents\Visual Studio 2017\Projects\HSGA\HSGA\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
 C:\Users\Elliott\Documents\Visual Studio 2017\Projects\HSGA\HSGA\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.dll
-C:\Users\Elliott\Documents\Visual Studio 2017\Projects\HSGA\HSGA\obj\Debug\HSGA.csproj.CoreCompileInputs.cache

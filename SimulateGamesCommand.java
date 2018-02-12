@@ -142,10 +142,12 @@ public class SimulateGamesCommand extends SimpleCommand<GameNotification> {
 		t.start();
 	}
 	
-	private String filePath = "C:/Users/Elliott/Desktop/DissertationProjects2017_18/test.txt";
+	private String filePath = "";
 
 	public void WriteStatsToFile(String textLine)
 	{
+		filePath = System.getProperty("user.dir");
+		
 		try
 		{
 			File path = new File(filePath);
