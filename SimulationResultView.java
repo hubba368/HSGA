@@ -169,7 +169,7 @@ public class SimulationResultView extends BorderPane {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void showSimulationResult(SimulationResult result) {
-		
+		//
 		//exit here to prevent JavaFX thread exceptions.
 		System.exit(0);
 		

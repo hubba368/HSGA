@@ -33,7 +33,7 @@ public class SimulationModeConfigView extends BorderPane implements EventHandler
 	@FXML
 	protected Button startButton;
 	protected ToggleButton startTestingButton;
-
+//
 	@FXML
 	protected Button backButton;
 

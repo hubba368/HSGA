@@ -44,9 +44,11 @@ namespace HSGA
             GenButton.Enabled = false;
         }
 
+
         private void GetAllCards_Click(object sender, EventArgs e)
         {
         }
+
 
         /// <summary>
         /// Generates a single, validated and randomised deck.
@@ -61,6 +63,7 @@ namespace HSGA
             NeutralPathLabel.Text = JSONHandler.finalGeneratedDeck;
             label1.Text = JSONHandler.cardCount.ToString();
         }
+
 
         /// <summary>
         /// Generates the initial population, which is given a specified hero class.
@@ -92,10 +95,12 @@ namespace HSGA
             }
         }
 
+
         private void TestValidationButton_Click(object sender, EventArgs e)
         {
            label2.Text =  JSONHandler.TestValidation();
         }
+
 
         private void GetAllSelectedCards_Click(object sender, EventArgs e)
         {
@@ -130,6 +135,7 @@ namespace HSGA
             {
                 if (sw.BaseStream.CanWrite)
                 {
+                    // this currently makes use of my directory, need to change to be user agnostic??
                     sw.WriteLine("cd C:\\Users\\Elliott\\Documents\\Visual Studio 2017\\Projects\\HSGA\\MetaStone Source\\metastone-master");
                     sw.WriteLine("gradlew run");
                 }
@@ -139,6 +145,7 @@ namespace HSGA
             // deck in metastone.
             p.WaitForExit();
         }
+
 
         private void GenButton_Click(object sender, EventArgs e)
         {
