@@ -169,6 +169,10 @@ public class SimulationResultView extends BorderPane {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void showSimulationResult(SimulationResult result) {
+		
+		//exit here to prevent JavaFX thread exceptions.
+		System.exit(0);
+		
 		player1InfoView.setInfo(result.getConfig().getPlayerConfig1());
 		player2InfoView.setInfo(result.getConfig().getPlayerConfig2());
 		durationLabel.setText("Simulation took " + DurationFormatUtils.formatDurationHMS(result.getDuration()));

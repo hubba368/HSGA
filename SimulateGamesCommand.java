@@ -134,16 +134,18 @@ public class SimulateGamesCommand extends SimpleCommand<GameNotification> {
 				//output stats of player 1 to text file.
 				String txt = result.getPlayer1Stats().toString();
 				WriteStatsToFile(txt);
-				System.out.println("Complete");
-				System.exit(0);
+				System.out.println("Testing Complete");
 			}
 		});
 		t.setDaemon(true);
 		t.start();
 	}
 	
+	
 	private String filePath = "";
-
+	//
+	// Output game stats to a text file
+	// luckily game stats are created as a long string
 	public void WriteStatsToFile(String textLine)
 	{
 		filePath = System.getProperty("user.dir");

@@ -11,6 +11,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -31,6 +32,7 @@ public class SimulationModeConfigView extends BorderPane implements EventHandler
 
 	@FXML
 	protected Button startButton;
+	protected ToggleButton startTestingButton;
 
 	@FXML
 	protected Button backButton;
@@ -62,6 +64,7 @@ public class SimulationModeConfigView extends BorderPane implements EventHandler
 		playerArea.getChildren().add(player1Config);
 		playerArea.getChildren().add(player2Config);
 
+		startTestingButton.setOnAction(this);
 		startButton.setOnAction(this);
 		backButton.setOnAction(this);
 		setupNumberOfGamesBox();
@@ -118,6 +121,7 @@ public class SimulationModeConfigView extends BorderPane implements EventHandler
 		ObservableList<Integer> numberOfGamesEntries = FXCollections.observableArrayList();
 		numberOfGamesEntries.add(1);
 		numberOfGamesEntries.add(10);
+		numberOfGamesEntries.add(15);
 		numberOfGamesEntries.add(100);
 		numberOfGamesEntries.add(1000);
 		numberOfGamesEntries.add(10000);

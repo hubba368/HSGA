@@ -23,7 +23,7 @@ namespace HSGA
         public HSGAIndividual GeneIndividual;
         public List<HSGAIndividual> GenePopulation;
 
-        private int _MaxPopulation = 10;
+        private int _MaxPopulation = 20;
 
         private string selectedClass;
 
@@ -73,17 +73,22 @@ namespace HSGA
             JSONHandler.filePath = deckDirectory;
 
             // assemble the initial population
-            for(int i =0; i < _MaxPopulation; i++)
+            // test each individual in the population
+            for(int i = 0; i < _MaxPopulation; i++)
             {
-                GeneIndividual.deck = JSONHandler.GenerateSpecificDeck(selectedClass);
-                //NeutralPathLabel.Text = JSONHandler.finalGeneratedDeck;
+                for(int j = 0; j < 8; j++)
+                {
+                    GeneIndividual.deck = JSONHandler.GenerateSpecificDeck(selectedClass);
+                    // calculate the fitness value of the current individual by testing it in Metastone
+                    GenerateAndValidatePopulation(GeneIndividual.deck);
 
-                // calculate the fitness value of the current individual by testing it in Metastone
-                GenerateAndValidatePopulation(GeneIndividual.deck);
-                // Add the individual to the population
-                GenePopulation.Add(GeneIndividual);
+                    //TODO:
+                    // retreive the sim stats from text file.
+                    // calc fitness - fitness function
 
-                GeneIndividual.deck = "";
+                    // Add the individual to the population
+                    GenePopulation.Add(GeneIndividual);
+                }
             }
         }
 
