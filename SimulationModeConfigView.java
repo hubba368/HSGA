@@ -2,6 +2,7 @@ package net.demilich.metastone.gui.simulationmode;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
@@ -32,16 +33,15 @@ public class SimulationModeConfigView extends BorderPane implements EventHandler
 
 	@FXML
 	protected Button startButton;
-	protected ToggleButton startTestingButton;
-//
+
 	@FXML
 	protected Button backButton;
 
 	@FXML
 	protected ComboBox<Integer> numberOfGamesBox;
 
-	protected PlayerConfigView player1Config;
-	protected PlayerConfigView player2Config;
+	public PlayerConfigView player1Config;
+	public PlayerConfigView player2Config;
 
 	private List<DeckFormat> deckFormats;
 
@@ -64,7 +64,6 @@ public class SimulationModeConfigView extends BorderPane implements EventHandler
 		playerArea.getChildren().add(player1Config);
 		playerArea.getChildren().add(player2Config);
 
-		startTestingButton.setOnAction(this);
 		startButton.setOnAction(this);
 		backButton.setOnAction(this);
 		setupNumberOfGamesBox();
@@ -89,11 +88,11 @@ public class SimulationModeConfigView extends BorderPane implements EventHandler
 		player1Config.setDeckFormat(newDeckFormat);
 		player2Config.setDeckFormat(newDeckFormat);
 	}
-
+	
 	@Override
-	public void handle(ActionEvent actionEvent) {
-		
+	public void handle(ActionEvent actionEvent) {			
 		if (actionEvent.getSource() == startButton) {
+			System.out.println("Beginning Testing.");
 			GameConfig gameConfig = new GameConfig();
 			gameConfig.setNumberOfGames(numberOfGamesBox.getSelectionModel().getSelectedItem());
 			gameConfig.setPlayerConfig1(player1Config.getPlayerConfig());
@@ -101,7 +100,8 @@ public class SimulationModeConfigView extends BorderPane implements EventHandler
 			gameConfig.setDeckFormat(formatBox.getValue());
 			NotificationProxy.sendNotification(GameNotification.COMMIT_SIMULATIONMODE_CONFIG, gameConfig);
 		} else if (actionEvent.getSource() == backButton) {
-			NotificationProxy.sendNotification(GameNotification.MAIN_MENU);
+			//NotificationProxy.sendNotification(GameNotification.MAIN_MENU);
+
 		}
 	}
 
@@ -127,6 +127,7 @@ public class SimulationModeConfigView extends BorderPane implements EventHandler
 		numberOfGamesEntries.add(10000);
 		numberOfGamesEntries.add(100000);
 		numberOfGamesBox.setItems(numberOfGamesEntries);
+		// select number of games to simulate here.
 		numberOfGamesBox.getSelectionModel().select(2);
 	}
 

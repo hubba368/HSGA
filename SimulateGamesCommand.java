@@ -149,6 +149,7 @@ public class SimulateGamesCommand extends SimpleCommand<GameNotification> {
 	public void WriteStatsToFile(String textLine)
 	{
 		filePath = System.getProperty("user.dir");
+		filePath = filePath.concat("/test.txt");
 		
 		try
 		{
