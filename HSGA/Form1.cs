@@ -10,13 +10,14 @@ using System.Windows.Forms;
 using System.IO;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace HSGA
 {
     public partial class Form1 : Form
     {
         public string initialDirectory = "C:\\Users\\Elliott\\Documents\\Visual Studio 2017\\Projects\\HSGA\\Assets\\CardsToBeDeserialized";
-        public string deckDirectory = "C:\\Users\\Elliott\\Documents\\Visual Studio 2017\\Projects\\HSGA\\MetaStone Source\\metastone-master\\cards\\src\\main\\resources\\decks";
+        public string deckDirectory = "C:\\Users\\Elliott\\Desktop\\DissertationProjects2017_18\\metastone-master\\cards\\src\\main\\resources\\decks";
 
         public CardJsonManager JSONHandler;
 
@@ -79,18 +80,87 @@ namespace HSGA
             // test each individual in the population
             for(int i = 0; i < _MaxPopulation; i++)
             {
-                for(int j = 0; j < 8; j++)
+                //test each individual against each hero class type once.
+                for(int opponentNum = 0; opponentNum < 8; opponentNum++)
                 {
+                    //Create the deck and send over individual and opponent class numbers
                     GeneIndividual.deck = JSONHandler.GenerateSpecificDeck(selectedClass);
+                    GenerateMetastoneValues(comboBox1.SelectedIndex, opponentNum);
                     // calculate the fitness value of the current individual by testing it in Metastone
                     GenerateAndValidatePopulation(GeneIndividual.deck);
 
                     //TODO:
                     // retreive the sim stats from text file.
+                    Dictionary<string, float> currentStats = new Dictionary<string, float>();
+                    currentStats = ParseMetastoneResults();
                     // calc fitness - fitness function
 
                     // Add the individual to the population
                     GenePopulation.Add(GeneIndividual);
+                }
+            }
+        }
+
+        private Dictionary<string,float> ParseMetastoneResults()
+        {
+            //parse file
+            string path = @"c:\Users\Elliott\Desktop\DissertationProjects2017_18\metastone-master\app\test.txt";
+
+            if (File.Exists(path))
+            {
+
+                //get numerical stats from testing results file
+                List<float> l = new List<float>();
+
+                using (StreamReader sr = File.OpenText(path))
+                {
+                    string s = sr.ReadToEnd();
+                    string[] numbers = Regex.Split(s, @"\D+");
+                    foreach(string value in numbers)
+                    {
+                        if (!string.IsNullOrEmpty(value))
+                        {
+                            float i = float.Parse(value);
+                            l.Add(i);
+                        }
+                    }
+                }
+
+                // add results to dictionary for easy formatting
+                Dictionary<string, float> currentStats = new Dictionary<string, float>();
+                currentStats.Add("Winrate", l[0]);
+                currentStats.Add("Games Won", l[1]);
+                currentStats.Add("Games Lost", l[2]);
+                currentStats.Add("Damage Dealt", l[3]);
+                currentStats.Add("Healing Done", l[4]);
+                currentStats.Add("Mana Spent", l[5]);
+                currentStats.Add("Cards Played", l[6]);
+                currentStats.Add("Turns Taken", l[7]);
+                currentStats.Add("Cards Drawn", l[8]);
+                currentStats.Add("Minions Played", l[9]);
+                currentStats.Add("Spells Cast", l[10]);
+                currentStats.Add("Hero Powers Used", l[11]);
+                currentStats.Add("Weapons Equipped", l[12]);
+                currentStats.Add("Weapons Played", l[13]);
+
+                return currentStats;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        private void GenerateMetastoneValues(int selectedClassNum, int opponentClassNum)
+        {
+            string path = @"c:\Users\Elliott\Desktop\DissertationProjects2017_18\metastone-master\CurrentIndividual.txt";
+
+            if (!File.Exists(path))
+            {
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    sw.WriteLine(selectedClassNum.ToString());
+                    sw.WriteLine(opponentClassNum.ToString());
                 }
             }
         }
@@ -136,7 +206,7 @@ namespace HSGA
                 if (sw.BaseStream.CanWrite)
                 {
                     // this currently makes use of my directory, need to change to be user agnostic??
-                    sw.WriteLine("cd C:\\Users\\Elliott\\Documents\\Visual Studio 2017\\Projects\\HSGA\\MetaStone Source\\metastone-master");
+                    sw.WriteLine("cd C:\\Users\\Elliott\\Desktop\\DissertationProjects2017_18\\metastone-master");
                     sw.WriteLine("gradlew run");
                 }
             }
