@@ -138,12 +138,15 @@ namespace HSGA
                 currentStats.Add("Mana Spent", l[5]);
                 currentStats.Add("Cards Played", l[6]);
                 currentStats.Add("Turns Taken", l[7]);
-                currentStats.Add("Cards Drawn", l[8]);
-                currentStats.Add("Minions Played", l[9]);
-                currentStats.Add("Spells Cast", l[10]);
-                currentStats.Add("Hero Powers Used", l[11]);
-                currentStats.Add("Weapons Equipped", l[12]);
-                currentStats.Add("Weapons Played", l[13]);
+                currentStats.Add("Armour Gained", l[8]);
+                currentStats.Add("Cards Drawn", l[9]);
+                currentStats.Add("Fatigue Damage", l[10]);
+                currentStats.Add("Minions Played", l[11]);
+                currentStats.Add("Permanents Played", l[12]);
+                currentStats.Add("Spells Cast", l[13]);
+                currentStats.Add("Hero Power Used", l[14]);
+                currentStats.Add("Weapons Equipped", l[15]);
+                currentStats.Add("Weapons Played", l[16]);
 
                 return currentStats;
             }
@@ -157,6 +160,10 @@ namespace HSGA
         {
             string path = @"c:\Users\Elliott\Desktop\DissertationProjects2017_18\metastone-master\CurrentIndividual.txt";
 
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
             if (!File.Exists(path))
             {
                 using (StreamWriter sw = File.CreateText(path))
