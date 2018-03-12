@@ -80,11 +80,13 @@ namespace HSGA
             // test each individual in the population
             for(int i = 0; i < _MaxPopulation; i++)
             {
+                //Create the deck for the current individual.
+                GeneIndividual.deck = JSONHandler.GenerateSpecificDeck(selectedClass);
+
                 //test each individual against each hero class type once.
-                for(int opponentNum = 0; opponentNum < 8; opponentNum++)
+                for (int opponentNum = 0; opponentNum < 8; opponentNum++)
                 {
-                    //Create the deck and send over individual and opponent class numbers
-                    GeneIndividual.deck = JSONHandler.GenerateSpecificDeck(selectedClass);
+                    //send over individual and opponent class numbers
                     GenerateMetastoneValues(comboBox1.SelectedIndex, opponentNum);
                     // calculate the fitness value of the current individual by testing it in Metastone
                     GenerateAndValidatePopulation(GeneIndividual.deck);
