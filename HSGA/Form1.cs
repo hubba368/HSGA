@@ -24,7 +24,7 @@ namespace HSGA
         public HSGAIndividual GeneIndividual;
         public List<HSGAIndividual> GenePopulation;
 
-        private int _MaxPopulation = 20;
+        private int _MaxPopulation = 1;
 
         private string selectedClass;
 
@@ -83,7 +83,7 @@ namespace HSGA
                 //Create the deck for the current individual.
                 GeneIndividual.deck = JSONHandler.GenerateSpecificDeck(selectedClass);
 
-                //test each individual against each hero class type once.
+                //test each individual against each hero class type.
                 for (int opponentNum = 0; opponentNum < 8; opponentNum++)
                 {
                     //send over individual and opponent class numbers

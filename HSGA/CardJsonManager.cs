@@ -20,14 +20,13 @@ namespace HSGA
     // Construction of specifically chosen class decks - done
     // Retrieve end of sim statistics from metastone - DONE    
     //  - need to implement Individual class - DONE - requires fitness value variables
+    // Automate the generation process - including the metastone testing - DONE
 
     ///////////TODO/////////// - In order of most needed to be done
     // implement gen algo requirements: 
     //  - Fitness, crossover, mutation function
     // Implement the genetic algorithm!!!!
     // save the deck files in Metastone directory - change to auto find deck directory - can be worked around by having the metastone program in same folder as this solution.
-    // Automate the generation process - including the metastone testing
-    // may need to change card retrieval to get mana cost
 
     /////QOL IMPROVEMENTS/////
     // Allow resetting of the current displayed deck
@@ -88,7 +87,7 @@ namespace HSGA
         {
             List<Card> cardList = new List<Card>();
             int index = 0;
-            Card currentCard = new Card("","","","","");
+            Card currentCard = new Card("","","","","","");
             string currentCardName = "";
             string currentCardRarity = "";
             string currentCardClassType = "";
@@ -173,7 +172,7 @@ namespace HSGA
 
             List<Card> cardList = new List<Card>();
             int index = 0;
-            Card currentCard = new Card("", "", "", "", "");
+            Card currentCard = new Card("", "", "", "", "", "");
             string currentCardName = "";
             string currentCardRarity = "";
             string currentCardClassType = "";
@@ -259,7 +258,8 @@ namespace HSGA
             // We need to validate the deck, to make sure that there are no more than
             // 2 of each card or 1 for each legendary card
             int prevCardCount = 0;
-            int newCardIndex = 0;
+            int newNeutralCardIndex = 0;
+            int newClassCardIndex = 0;
 
             if(cardList.Count > 30)
             {
@@ -280,7 +280,10 @@ namespace HSGA
                     string nextCardRarity = cardList[l]._CardRarity;
                     // compare the 2 card values
                     int check = string.Compare(cardToCompare, nextCard);
-                    newCardIndex = rand.Next(allCardsList.NeutralCardList.Count);
+
+                    List<Card> ClassCardList = allCardsList.GetDeckClassType(cardList[l]._CardClassType);
+                    newNeutralCardIndex = rand.Next(allCardsList.NeutralCardList.Count);
+                    newClassCardIndex = rand.Next(ClassCardList.Count);
 
                     // if the names are the same, increment the card counter
                     // This is used to check for any cards that aren't
@@ -292,16 +295,33 @@ namespace HSGA
                     if (prevCardCount > 2)
                     {
                         // remove the unecessary duplicate and replace it
-                        Card newCard;
-                        newCard = allCardsList.NeutralCardList[newCardIndex];
+                        Card newNeutralCard;
+                        Card newClassCard;
+                        bool cardTypeChosen = false;
 
-                        if (cardList[l]._CardID == newCard._CardID || cardList[l]._CardFileName == newCard._CardFileName)
+                        newNeutralCard = allCardsList.NeutralCardList[newNeutralCardIndex];
+                        newClassCard = ClassCardList[newClassCardIndex];
+                        cardTypeChosen = rand.Next(100) < 50 ? true : false;
+
+                        // choose randomly whether to swap with a neutral or class card.
+                        if (cardTypeChosen == true)
                         {
-                            newCard = allCardsList.NeutralCardList[rand.Next(allCardsList.NeutralCardList.Count)];
+                            if (cardList[l]._CardID == newNeutralCard._CardID || cardList[l]._CardFileName == newNeutralCard._CardFileName)
+                            {
+                                newNeutralCard = allCardsList.NeutralCardList[rand.Next(allCardsList.NeutralCardList.Count)];
+                            }
+                        }
+                        else if (cardTypeChosen == false)
+                        {
+                            if (cardList[l]._CardID == newClassCard._CardID || cardList[l]._CardFileName == newClassCard._CardFileName)
+                            {
+                                newClassCard = ClassCardList[rand.Next(ClassCardList.Count)];
+                            }
                         }
 
+
                         cardList.Remove(cardList[l]);
-                        cardList.Insert(l, newCard);
+                        cardList.Insert(l, newNeutralCard);
                         prevCardCount = 0;
                     }
 
@@ -384,6 +404,7 @@ namespace HSGA
                     string classType = (string)currentCard.SelectToken("heroClass");
                     string rarity = (string)currentCard.SelectToken("rarity");
                     string fileName = Path.GetFileNameWithoutExtension(filesInFolder[i]);
+                    string cardCost = (string)currentCard.SelectToken("baseManaCost");
 
                     if (id == null)
                     {
@@ -391,7 +412,7 @@ namespace HSGA
                     }
 
                     // assemble and add new card to its respective list
-                    Card newCard = new Card(id, cardType, classType, rarity, fileName);
+                    Card newCard = new Card(id, cardType, classType, rarity, fileName, cardCost);
 
                     if (classType == "DRUID")
                         allCardsList.DruidCardList.Add(newCard);
@@ -460,6 +481,7 @@ namespace HSGA
                 string classType = (string)currentCard.SelectToken("heroClass");
                 string rarity = (string)currentCard.SelectToken("rarity");
                 string fileName = Path.GetFileNameWithoutExtension(filesInFolder[i]);
+                string cardCost = (string)currentCard.SelectToken("baseManaCost");
 
                 if (id == null)
                 {
@@ -467,7 +489,7 @@ namespace HSGA
                 }
 
                 // assemble and add new card to its respective list
-                Card newCard = new Card(id, cardType, classType, rarity, fileName);
+                Card newCard = new Card(id, cardType, classType, rarity, fileName, cardCost);
 
                 // check if the card class type matches to the input
                 if(newCard._CardClassType.ToUpper() == cardClass.ToUpper())
@@ -481,20 +503,20 @@ namespace HSGA
         //DEBUG FUNCTIONS//
 
         /// <summary>
-        /// Test function to test the previous function ValidateDeck.
+        /// Test function to test ValidateDeck.
         /// </summary>
         /// <returns></returns>
         public string TestValidation()
         {
             List<Card> testDeck = new List<Card>();
-            Card minionCard1 = new Card("", "", "", "", "");
-            Card minionCard2 = new Card("", "", "", "", "");
-            Card minionCard3 = new Card("", "", "", "", "");
-            Card legendCard1 = new Card("", "", "", "", "");
-            Card legendCard2 = new Card("", "", "", "", "");
-            Card weaponCard1 = new Card("", "", "", "", "");
-            Card weaponCard2 = new Card("", "", "", "", "");
-            Card weaponCard3 = new Card("", "", "", "", "");
+            Card minionCard1 = new Card("", "", "", "", "", "");
+            Card minionCard2 = new Card("", "", "", "", "", "");
+            Card minionCard3 = new Card("", "", "", "", "", "");
+            Card legendCard1 = new Card("", "", "", "", "", "");
+            Card legendCard2 = new Card("", "", "", "", "", "");
+            Card weaponCard1 = new Card("", "", "", "", "", "");
+            Card weaponCard2 = new Card("", "", "", "", "", "");
+            Card weaponCard3 = new Card("", "", "", "", "", "");
 
             // test duplicate non legendary, non weapon cards
             minionCard1 = allCardsList.NeutralCardList[0];

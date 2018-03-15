@@ -120,5 +120,56 @@ namespace HSGA
                     return NeutralCardList;
             }
         }
+
+        // Function to get a deck class type.
+        public List<Card> GetDeckClassType(string type)
+        {
+            List<Card> returnList = new List<Card>();
+
+            switch (type)
+            {
+                case "DRUID":
+                    returnList = DruidCardList;
+                    break;
+
+                case "HUNTER":
+                    returnList = HunterCardList;
+                    break;
+
+                case "MAGE":
+                    returnList = MageCardList;
+                    break;
+
+                case "PALADIN":
+                    returnList = PaladinCardList;
+                    break;
+
+                case "PRIEST":
+                    returnList = PriestCardList;
+                    break;
+
+                case "ROGUE":
+                    returnList = RogueCardList;
+                    break;
+
+                case "SHAMAN":
+                    returnList = ShamanCardList;
+                    break;
+
+                case "WARRIOR":
+                    returnList = WarriorCardList;
+                    break;
+
+                case "WARLOCK":
+                    returnList = WarlockCardList;
+                    break;
+
+                default:
+                    returnList = NeutralCardList;
+                    break;
+            }
+
+            return returnList;
+        }
     }
 }

@@ -28,14 +28,16 @@ namespace HSGA
         public string _CardClassType { get; set; }
         public string _CardRarity { get; set; }
         public string _CardFileName { get; set; }
+        public string _CardCost { get; set; }
 
-        public Card(string id, string type, string cType, string rarity, string fileName)
+        public Card(string id, string type, string cType, string rarity, string fileName, string cardCost)
         {
             _CardID = id;
             _CardType = type;
             _CardClassType = cType;
             _CardRarity = rarity;
             _CardFileName = fileName;
+            _CardCost = cardCost;
         }
     }
 }
