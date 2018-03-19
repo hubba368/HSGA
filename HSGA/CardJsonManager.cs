@@ -24,8 +24,10 @@ namespace HSGA
 
     ///////////TODO/////////// - In order of most needed to be done
     // implement gen algo requirements: 
-    //  - Fitness, crossover, mutation function
+    //  - Fitness, crossover, selection, mutation function
     // Implement the genetic algorithm!!!!
+    // Represent deck as list for mutation function etc
+    // stat collection - per generation and per individual
     // save the deck files in Metastone directory - change to auto find deck directory - can be worked around by having the metastone program in same folder as this solution.
 
     /////QOL IMPROVEMENTS/////
@@ -119,7 +121,7 @@ namespace HSGA
 
                     // Add last card to the list and validate it for legality
                     cardList.Add(currentCard);
-                    ValidateDeck(cardList);
+                    ValidateAndFixDeck(cardList);
 
                     // assemble the deck section of JSON string
                     for (int j = 0; j < cardList.Count; j++)
@@ -202,7 +204,7 @@ namespace HSGA
 
                     // Add last card to the list and validate it for legality
                     cardList.Add(currentCard);
-                    ValidateDeck(cardList);
+                    ValidateAndFixDeck(cardList);
 
                     // assemble the deck section of JSON string
                     for (int j = 0; j < cardList.Count; j++)
@@ -250,10 +252,12 @@ namespace HSGA
         /// <summary>
         /// Validates the input card list by checking if the deck has max 2 per card,
         /// or 1 per card of legendary rarity.
+        /// This function returns a 'fixed' card list.
+        /// We only need to call this when generating the initial population.
         /// </summary>
         /// <param name="cardList"></param>
         /// <returns></returns>
-        private List<Card> ValidateDeck(List<Card> cardList)
+        private List<Card> ValidateAndFixDeck(List<Card> cardList)
         {
             // We need to validate the deck, to make sure that there are no more than
             // 2 of each card or 1 for each legendary card
@@ -334,6 +338,67 @@ namespace HSGA
             }
 
             return cardList;
+        }
+
+        /// <summary>
+        /// Validates the input card list by checking if the deck has max 2 per card,
+        /// or 1 per card of legendary rarity.
+        /// </summary>
+        /// <param name="cardList"></param>
+        /// <returns></returns>
+        private bool ValidateDeck(List<Card> cardList)
+        {
+            // We need to validate the deck, to make sure that there are no more than
+            // 2 of each card or 1 for each legendary card
+            int prevCardCount = 0;
+            bool isDeckLegal = true;
+
+            // deck is illegal if the max count is over 30.
+            if (cardList.Count > 30)
+            {
+                isDeckLegal = false;
+                return isDeckLegal;
+            }
+
+            for (int j = 0; j < cardList.Count - 1; j++)
+            {
+                // get current card
+                // and current card rarity
+                string cardToCompare = cardList[j]._CardID;
+                string cardToCompareRarity = cardList[j]._CardRarity;
+
+                for (int l = j + 1; l < cardList.Count; l++)
+                {
+                    // get the next card and rarity in the list
+                    string nextCard = cardList[l]._CardID;
+                    string nextCardRarity = cardList[l]._CardRarity;
+                    // compare the 2 card values
+                    int check = string.Compare(cardToCompare, nextCard);
+
+                    // if the names are the same, increment the card counter
+                    // This is used to check for any cards that aren't
+                    // legendary.
+                    if (check == 0)
+                    {
+                        prevCardCount++;
+                    }
+                    if (prevCardCount > 2)
+                    {
+                        isDeckLegal = false;
+                        return isDeckLegal;
+                    }
+
+                    // illegal deck if duplicate legendary card.
+                    if (check == 0 && nextCardRarity == "LEGENDARY")
+                    {
+                        isDeckLegal = false;
+                        return isDeckLegal;
+                    }
+                }
+            }
+
+            return isDeckLegal;
+
         }
 
 
@@ -542,7 +607,7 @@ namespace HSGA
             testDeck.Add(weaponCard2);
             testDeck.Add(weaponCard3);
 
-            ValidateDeck(testDeck);
+            ValidateAndFixDeck(testDeck);
 
             string result = "";
 
