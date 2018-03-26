@@ -57,7 +57,7 @@ namespace HSGA
             WARRIOR = 8
         }
 
-        CardList allCardsList;
+        public CardList allCardsList;
 
         public string finalGeneratedDeck;
         public string finalGeneratedDeckCardList;
@@ -65,6 +65,7 @@ namespace HSGA
         public string finalGeneratedDeckClass;
         public string filePath;
         public int cardCount = 0;
+        public List<Card> finalGeneratedCardList;
 
         Random rand;
         const int DECK_LENGTH = 30;
@@ -76,7 +77,8 @@ namespace HSGA
             finalGeneratedDeckName = "";
             finalGeneratedDeckCardList = "";
             finalGeneratedDeckClass = "";
-            finalGeneratedDeck = ""; 
+            finalGeneratedDeck = "";
+            finalGeneratedCardList = new List<Card>();
         }
         //{\n \"cards\": [\n  ],\n \"name\": \n \"heroClass\" \n \"arbitrary\": false\n}
 
@@ -89,7 +91,7 @@ namespace HSGA
         {
             List<Card> cardList = new List<Card>();
             int index = 0;
-            Card currentCard = new Card("","","","","","");
+            Card currentCard = new Card("","","","","","", "");
             string currentCardName = "";
             string currentCardRarity = "";
             string currentCardClassType = "";
@@ -121,7 +123,7 @@ namespace HSGA
 
                     // Add last card to the list and validate it for legality
                     cardList.Add(currentCard);
-                    ValidateAndFixDeck(cardList);
+                    ValidateAndFixDeck(cardList, currentType);
 
                     // assemble the deck section of JSON string
                     for (int j = 0; j < cardList.Count; j++)
@@ -163,7 +165,7 @@ namespace HSGA
         }
 
         /// <summary>
-        /// Generates a valid deck of specific hero class.
+        /// Generates a valid standard type deck of specific hero class.
         /// </summary>
         /// <param name="heroClass"></param>
         /// <returns></returns>
@@ -171,10 +173,11 @@ namespace HSGA
         {
             string finalDeckString = "";
             finalGeneratedDeckCardList = "";
+            finalGeneratedCardList.Clear();
 
             List<Card> cardList = new List<Card>();
             int index = 0;
-            Card currentCard = new Card("", "", "", "", "", "");
+            Card currentCard = new Card("", "", "", "", "", "", "");
             string currentCardName = "";
             string currentCardRarity = "";
             string currentCardClassType = "";
@@ -204,13 +207,14 @@ namespace HSGA
 
                     // Add last card to the list and validate it for legality
                     cardList.Add(currentCard);
-                    ValidateAndFixDeck(cardList);
+                    ValidateAndFixDeck(cardList, currentType);
 
                     // assemble the deck section of JSON string
                     for (int j = 0; j < cardList.Count; j++)
                     {
                         finalGeneratedDeckCardList += "\t\"" + cardList[j]._CardID + "\"\n";
                     }
+                   // finalGeneratedDeckCardList += "\t\"" + cardList[29]._CardID + "\"\n";
 
                     //generate deck name and hero class
                     finalGeneratedDeckName = "geneDeck";
@@ -224,26 +228,29 @@ namespace HSGA
                     GenerateDeckAsJson(finalDeck, filePath);
 
                     finalGeneratedDeck = finalDeck;
+                    finalGeneratedCardList = cardList;
+                    finalDeckString = finalGeneratedDeck;
                 }
-
-                //grab a card at psuedo random 
-                index = rand.Next(randomList.Count);
-                currentCard = randomList[index];
-                currentCardName = currentCard._CardID;
-                currentCardRarity = currentCard._CardRarity;
-                currentCardClassType = currentCard._CardType;
-
-                if (currentCard._CardID == null)
+                if(i != 30)
                 {
-                    // some of the files have no ids, so use the file name instead
-                    currentCard._CardID = randomList[index]._CardFileName;
-                }
+                    //grab a card at psuedo random 
+                    index = rand.Next(randomList.Count);
+                    currentCard = randomList[index];
+                    currentCardName = currentCard._CardID;
+                    currentCardRarity = currentCard._CardRarity;
+                    currentCardClassType = currentCard._CardType;
 
-                cardList.Add(currentCard);
-                cardCount++;
+                    if (currentCard._CardID == null)
+                    {
+                        // some of the files have no ids, so use the file name instead
+                        currentCard._CardID = randomList[index]._CardFileName;
+                    }
+
+                    cardList.Add(currentCard);
+                    cardCount++;
+                }
             }
 
-            finalDeckString = finalGeneratedDeck;
             return finalDeckString;
 
         }
@@ -257,7 +264,7 @@ namespace HSGA
         /// </summary>
         /// <param name="cardList"></param>
         /// <returns></returns>
-        private List<Card> ValidateAndFixDeck(List<Card> cardList)
+        private List<Card> ValidateAndFixDeck(List<Card> cardList, string classType)
         {
             // We need to validate the deck, to make sure that there are no more than
             // 2 of each card or 1 for each legendary card
@@ -265,9 +272,12 @@ namespace HSGA
             int newNeutralCardIndex = 0;
             int newClassCardIndex = 0;
 
-            if(cardList.Count > 30)
+            if (cardList.Count > 30)
             {
-                cardList.Remove(cardList.ElementAt(30));
+                if (cardList.ElementAt(30) != null)
+                {
+                    cardList.Remove(cardList.ElementAt(30));
+                }
             }
 
             for (int j = 0; j < cardList.Count - 1; j++)
@@ -283,22 +293,24 @@ namespace HSGA
                     string nextCard = cardList[l]._CardID;
                     string nextCardRarity = cardList[l]._CardRarity;
                     // compare the 2 card values
-                    int check = string.Compare(cardToCompare, nextCard);
+                    bool check = nextCard.Equals(cardToCompare);
 
-                    List<Card> ClassCardList = allCardsList.GetDeckClassType(cardList[l]._CardClassType);
+                    List<Card> ClassCardList = allCardsList.GetDeckClassType(classType);
                     newNeutralCardIndex = rand.Next(allCardsList.NeutralCardList.Count);
                     newClassCardIndex = rand.Next(ClassCardList.Count);
 
                     // if the names are the same, increment the card counter
                     // This is used to check for any cards that aren't
                     // legendary.
-                    if (check == 0)
+                    if (check == true)
                     {
                         prevCardCount++;
                     }
                     if (prevCardCount > 2)
                     {
                         // remove the unecessary duplicate and replace it
+
+
                         Card newNeutralCard;
                         Card newClassCard;
                         bool cardTypeChosen = false;
@@ -313,6 +325,7 @@ namespace HSGA
                             if (cardList[l]._CardID == newNeutralCard._CardID || cardList[l]._CardFileName == newNeutralCard._CardFileName)
                             {
                                 newNeutralCard = allCardsList.NeutralCardList[rand.Next(allCardsList.NeutralCardList.Count)];
+
                             }
                         }
                         else if (cardTypeChosen == false)
@@ -320,19 +333,62 @@ namespace HSGA
                             if (cardList[l]._CardID == newClassCard._CardID || cardList[l]._CardFileName == newClassCard._CardFileName)
                             {
                                 newClassCard = ClassCardList[rand.Next(ClassCardList.Count)];
+
                             }
                         }
 
-
                         cardList.Remove(cardList[l]);
-                        cardList.Insert(l, newNeutralCard);
+                        if (cardTypeChosen == true)
+                        {
+                            cardList.Insert(l, newNeutralCard);
+                        }
+                        else
+                        {
+                            cardList.Insert(l, newClassCard);
+                        }
+
                         prevCardCount = 0;
                     }
 
                     // if the card is legendary, remove the next instance of it
-                    if (check == 0 && nextCardRarity == "LEGENDARY")
+                    if (check == true && nextCardRarity == "LEGENDARY")
                     {
+                        Card newNeutralCard;
+                        Card newClassCard;
+                        bool cardTypeChosen = false;
+
+                        newNeutralCard = allCardsList.NeutralCardList[newNeutralCardIndex];
+                        newClassCard = ClassCardList[newClassCardIndex];
+                        cardTypeChosen = rand.Next(100) < 50 ? true : false;
+
+                        // choose randomly whether to swap with a neutral or class card.
+                        if (cardTypeChosen == true)
+                        {
+                            if (cardList[l]._CardID == newNeutralCard._CardID || cardList[l]._CardFileName == newNeutralCard._CardFileName)
+                            {
+                                newNeutralCard = allCardsList.NeutralCardList[rand.Next(allCardsList.NeutralCardList.Count)];
+
+                            }
+                        }
+                        else if (cardTypeChosen == false)
+                        {
+                            if (cardList[l]._CardID == newClassCard._CardID || cardList[l]._CardFileName == newClassCard._CardFileName)
+                            {
+                                newClassCard = ClassCardList[rand.Next(ClassCardList.Count)];
+
+                            }
+                        }
+
                         cardList.Remove(cardList[l]);
+                        if (cardTypeChosen == true)
+                        {
+                            cardList.Insert(l, newNeutralCard);
+                        }
+                        else
+                        {
+                            cardList.Insert(l, newClassCard);
+                        }
+
                     }
                 }
             }
@@ -346,7 +402,7 @@ namespace HSGA
         /// </summary>
         /// <param name="cardList"></param>
         /// <returns></returns>
-        private bool ValidateDeck(List<Card> cardList)
+        public bool ValidateDeck(List<Card> cardList)
         {
             // We need to validate the deck, to make sure that there are no more than
             // 2 of each card or 1 for each legendary card
@@ -354,7 +410,7 @@ namespace HSGA
             bool isDeckLegal = true;
 
             // deck is illegal if the max count is over 30.
-            if (cardList.Count > 30)
+            if (cardList.Count != 30)
             {
                 isDeckLegal = false;
                 return isDeckLegal;
@@ -366,19 +422,27 @@ namespace HSGA
                 // and current card rarity
                 string cardToCompare = cardList[j]._CardID;
                 string cardToCompareRarity = cardList[j]._CardRarity;
+                prevCardCount = 0;
 
                 for (int l = j + 1; l < cardList.Count; l++)
                 {
                     // get the next card and rarity in the list
                     string nextCard = cardList[l]._CardID;
                     string nextCardRarity = cardList[l]._CardRarity;
-                    // compare the 2 card values
-                    int check = string.Compare(cardToCompare, nextCard);
+                    // compare the 2 card values returns 0 if the same
+                    bool check = nextCard.Equals(cardToCompare);
 
                     // if the names are the same, increment the card counter
                     // This is used to check for any cards that aren't
                     // legendary.
-                    if (check == 0)
+                    // illegal deck if duplicate legendary card.
+                    if (check == true && nextCardRarity == "LEGENDARY")
+                    {
+                        isDeckLegal = false;
+                        return isDeckLegal;
+                    }
+
+                    if (check == true)
                     {
                         prevCardCount++;
                     }
@@ -387,16 +451,9 @@ namespace HSGA
                         isDeckLegal = false;
                         return isDeckLegal;
                     }
-
-                    // illegal deck if duplicate legendary card.
-                    if (check == 0 && nextCardRarity == "LEGENDARY")
-                    {
-                        isDeckLegal = false;
-                        return isDeckLegal;
-                    }
                 }
             }
-
+            isDeckLegal = true;
             return isDeckLegal;
 
         }
@@ -470,6 +527,7 @@ namespace HSGA
                     string rarity = (string)currentCard.SelectToken("rarity");
                     string fileName = Path.GetFileNameWithoutExtension(filesInFolder[i]);
                     string cardCost = (string)currentCard.SelectToken("baseManaCost");
+                    string cardSet = (string)currentCard.SelectToken("set");
 
                     if (id == null)
                     {
@@ -477,7 +535,7 @@ namespace HSGA
                     }
 
                     // assemble and add new card to its respective list
-                    Card newCard = new Card(id, cardType, classType, rarity, fileName, cardCost);
+                    Card newCard = new Card(id, cardType, classType, rarity, fileName, cardCost, cardSet);
 
                     if (classType == "DRUID")
                         allCardsList.DruidCardList.Add(newCard);
@@ -547,6 +605,7 @@ namespace HSGA
                 string rarity = (string)currentCard.SelectToken("rarity");
                 string fileName = Path.GetFileNameWithoutExtension(filesInFolder[i]);
                 string cardCost = (string)currentCard.SelectToken("baseManaCost");
+                string cardSet = (string)currentCard.SelectToken("set");
 
                 if (id == null)
                 {
@@ -554,7 +613,7 @@ namespace HSGA
                 }
 
                 // assemble and add new card to its respective list
-                Card newCard = new Card(id, cardType, classType, rarity, fileName, cardCost);
+                Card newCard = new Card(id, cardType, classType, rarity, fileName, cardCost, cardSet);
 
                 // check if the card class type matches to the input
                 if(newCard._CardClassType.ToUpper() == cardClass.ToUpper())
@@ -574,14 +633,14 @@ namespace HSGA
         public string TestValidation()
         {
             List<Card> testDeck = new List<Card>();
-            Card minionCard1 = new Card("", "", "", "", "", "");
-            Card minionCard2 = new Card("", "", "", "", "", "");
-            Card minionCard3 = new Card("", "", "", "", "", "");
-            Card legendCard1 = new Card("", "", "", "", "", "");
-            Card legendCard2 = new Card("", "", "", "", "", "");
-            Card weaponCard1 = new Card("", "", "", "", "", "");
-            Card weaponCard2 = new Card("", "", "", "", "", "");
-            Card weaponCard3 = new Card("", "", "", "", "", "");
+            Card minionCard1 = new Card("", "", "", "", "", "", "");
+            Card minionCard2 = new Card("", "", "", "", "", "", "");
+            Card minionCard3 = new Card("", "", "", "", "", "", "");
+            Card legendCard1 = new Card("", "", "", "", "", "", "");
+            Card legendCard2 = new Card("", "", "", "", "", "", "");
+            Card weaponCard1 = new Card("", "", "", "", "", "", "");
+            Card weaponCard2 = new Card("", "", "", "", "", "", "");
+            Card weaponCard3 = new Card("", "", "", "", "", "", "");
 
             // test duplicate non legendary, non weapon cards
             minionCard1 = allCardsList.NeutralCardList[0];
@@ -607,7 +666,7 @@ namespace HSGA
             testDeck.Add(weaponCard2);
             testDeck.Add(weaponCard3);
 
-            ValidateAndFixDeck(testDeck);
+            ValidateAndFixDeck(testDeck, weaponCard1._CardClassType);
 
             string result = "";
 

@@ -23,18 +23,24 @@ namespace HSGA
 
         public HSGAIndividual GeneIndividual;
         public List<HSGAIndividual> GenePopulation;
+        public List<HSGAIndividual> newPopulation;
 
-        private int _MaxPopulation = 1;
+        private int _MaxPopulation = 2;
+        private float mutationProbability = 0.015f;
+        private float similarCostProbability = 0.25f;
 
         private string selectedClass;
+
+        private Random rand;
 
         public Form1()
         {
             InitializeComponent();
-            //should init json manager here
             JSONHandler = new CardJsonManager();
             GenePopulation = new List<HSGAIndividual>();
+            newPopulation = new List<HSGAIndividual>();
             GeneIndividual = new HSGAIndividual();
+            rand = new Random();
 
             // deserialize all cards on startup
             int numOfFiles = Directory.GetDirectories(initialDirectory, "*", SearchOption.TopDirectoryOnly).Length;
@@ -48,6 +54,7 @@ namespace HSGA
 
         private void GetAllCards_Click(object sender, EventArgs e)
         {
+            ProduceNextGeneration();
         }
 
 
@@ -80,29 +87,66 @@ namespace HSGA
             // test each individual in the population
             for(int i = 0; i < _MaxPopulation; i++)
             {
-                //Create the deck for the current individual.
+                // Create the deck for the current individual.
                 GeneIndividual.deck = JSONHandler.GenerateSpecificDeck(selectedClass);
+                GeneIndividual.cardList = JSONHandler.finalGeneratedCardList;
 
-                //test each individual against each hero class type.
-                for (int opponentNum = 0; opponentNum < 8; opponentNum++)
+                GeneFunctions gene = new GeneFunctions();
+
+                // check if deck is legal - dont really need to do it here
+                // because initial population will be legal regardless
+                bool isLegal = JSONHandler.ValidateDeck(GeneIndividual.cardList);
+
+
+                //if deck isnt legal, no need to test it in metastone
+                if(isLegal == true)
                 {
-                    //send over individual and opponent class numbers
-                    GenerateMetastoneValues(comboBox1.SelectedIndex, opponentNum);
-                    // calculate the fitness value of the current individual by testing it in Metastone
-                    GenerateAndValidatePopulation(GeneIndividual.deck);
+                    // test each individual against each hero class type.
+                    for (int opponentNum = 0; opponentNum < 8; opponentNum++)
+                    {
+                        // send over individual and opponent class numbers
+                        GenerateMetastoneValues(comboBox1.SelectedIndex, opponentNum);
+                        // run gradlew run command in cmd in metastone directory
+                        GenerateAndValidatePopulation(GeneIndividual.deck);
 
-                    //TODO:
-                    // retreive the sim stats from text file.
-                    Dictionary<string, float> currentStats = new Dictionary<string, float>();
-                    currentStats = ParseMetastoneResults();
-                    // calc fitness - fitness function
 
-                    // Add the individual to the population
-                    GenePopulation.Add(GeneIndividual);
+                        // retreive the sim stats from text file.
+                        Dictionary<string, float> currentStats = new Dictionary<string, float>();
+                        currentStats = ParseMetastoneResults();
+                        // accumulate current win rate per game.
+                        gene.CalculateAvgWinRate(currentStats);
+                    }
                 }
+                // calc fitness - fitness function
+                // calc legality
+                gene.CalculateFitness(isLegal);
+                GeneIndividual.winRateFitness = gene.winRateFitness;
+                GeneIndividual.legalFitness = gene.legalityFitness;
+                GeneIndividual.standardDeviationFitness = gene.standardDeviationFitness;
+
+                // Add the individual to the population
+                GenePopulation.Add(GeneIndividual);
             }
         }
 
+
+        private void ProduceNextGeneration()
+        {
+            GeneFunctions gene = new GeneFunctions();
+            List<HSGAIndividual> parents = new List<HSGAIndividual>();
+            // select parents
+            parents.Add(gene.SelectIndividual(GenePopulation));
+            parents.Add(gene.SelectIndividual(GenePopulation));
+            //crossover
+            gene.Crossover(parents);
+            //mutation
+        }
+
+
+        /// <summary>
+        /// Retrieves post game stats which are generated as a text file
+        /// </summary>
+        /// <returns></returns>
         private Dictionary<string,float> ParseMetastoneResults()
         {
             //parse file
@@ -156,6 +200,34 @@ namespace HSGA
             }
         }
 
+
+        public HSGAIndividual MutateIndividual(HSGAIndividual ind)
+        {
+            // TODO: get new card, swap it with index in list
+            for (int i = 0; i < ind.cardList.Count; i++)
+            {
+                if (rand.NextDouble() <= mutationProbability)
+                {
+                    if(rand.NextDouble() <= similarCostProbability)
+                    {
+                      //  Card temp = JSONHandler.allCardsList.
+
+                    }
+                    else
+                    {
+
+                    }
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// Generates hero class numbers for gene deck and for opponent as text file,
+        /// This is then parsed within metastone to set up pre-game settings correctly.
+        /// </summary>
+        /// <param name="selectedClassNum"></param>
+        /// <param name="opponentClassNum"></param>
         private void GenerateMetastoneValues(int selectedClassNum, int opponentClassNum)
         {
             string path = @"c:\Users\Elliott\Desktop\DissertationProjects2017_18\metastone-master\CurrentIndividual.txt";

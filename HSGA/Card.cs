@@ -29,8 +29,9 @@ namespace HSGA
         public string _CardRarity { get; set; }
         public string _CardFileName { get; set; }
         public string _CardCost { get; set; }
+        public string _CardSet { get; set; }
 
-        public Card(string id, string type, string cType, string rarity, string fileName, string cardCost)
+        public Card(string id, string type, string cType, string rarity, string fileName, string cardCost, string set)
         {
             _CardID = id;
             _CardType = type;
@@ -38,6 +39,7 @@ namespace HSGA
             _CardRarity = rarity;
             _CardFileName = fileName;
             _CardCost = cardCost;
+            _CardSet = set;
         }
     }
 }
