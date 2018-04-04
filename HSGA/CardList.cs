@@ -171,5 +171,55 @@ namespace HSGA
 
             return returnList;
         }
+
+        public string GetDeckClassTypeFromCard(string type)
+        {
+            string returnType = "";
+
+            switch (type)
+            {
+                case "DRUID":
+                    returnType = "DRUID";
+                    break;
+
+                case "HUNTER":
+                    returnType = "HUNTER";
+                    break;
+
+                case "MAGE":
+                    returnType = "MAGE";
+                    break;
+
+                case "PALADIN":
+                    returnType = "PALADIN";
+                    break;
+
+                case "PRIEST":
+                    returnType = "PRIEST";
+                    break;
+
+                case "ROGUE":
+                    returnType = "ROGUE";
+                    break;
+
+                case "SHAMAN":
+                    returnType = "SHAMAN";
+                    break;
+
+                case "WARRIOR":
+                    returnType = "WARRIOR";
+                    break;
+
+                case "WARLOCK":
+                    returnType = "WARLOCK";
+                    break;
+
+                default:
+                    returnType = "NEUTRAL";
+                    break;
+            }
+
+            return returnType;
+        }
     }
 }

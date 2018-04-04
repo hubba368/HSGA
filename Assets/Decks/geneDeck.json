@@ -1,0 +1,37 @@
+{
+  "cards": [
+	"weapon_brass_knuckles"
+	"spell_rampage"
+	"weapon_brass_knuckles"
+	"spell_inner_rage"
+	"spell_sleep_with_the_fishes"
+	"spell_brawl"
+	"minion_arathi_weaponsmith"
+	"weapon_fiery_war_axe"
+	"minion_public_defender"
+	"spell_stolen_goods"
+	"spell_sleep_with_the_fishes"
+	"minion_korkron_elite"
+	"minion_frothing_berserker"
+	"minion_grimestreet_pawnbroker"
+	"minion_grommash_hellscream"
+	"spell_battle_rage"
+	"minion_public_defender"
+	"spell_whirlwind"
+	"spell_protect_the_king"
+	"spell_shield_block"
+	"minion_armorsmith"
+	"minion_warsong_commander"
+	"minion_nightblade"
+	"spell_inner_rage"
+	"minion_elven_archer"
+	"weapon_arcanite_reaper"
+	"minion_public_defender"
+	"spell_i_know_a_guy"
+	"minion_armorsmith"
+	"spell_CHARGE"
+  ],
+    "name": "geneDeck",
+    "heroClass": "WARRIOR",
+    "arbitrary": false
+}

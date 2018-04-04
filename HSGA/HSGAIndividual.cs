@@ -15,7 +15,7 @@ namespace HSGA
     public class HSGAIndividual
     {
         public string deck;
-        public List<Card> cardList = new List<Card>();
+        public List<Card> cardList;
 
         //fitness values
         public float winRateFitness;

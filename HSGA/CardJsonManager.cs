@@ -65,7 +65,7 @@ namespace HSGA
         public string finalGeneratedDeckClass;
         public string filePath;
         public int cardCount = 0;
-        public List<Card> finalGeneratedCardList;
+        private List<Card> finalGeneratedCardList;
 
         Random rand;
         const int DECK_LENGTH = 30;
@@ -169,11 +169,11 @@ namespace HSGA
         /// </summary>
         /// <param name="heroClass"></param>
         /// <returns></returns>
-        public string GenerateSpecificDeck(string heroClass)
+        public Tuple<string,List<Card>> GenerateSpecificDeck(string heroClass)
         {
             string finalDeckString = "";
-            finalGeneratedDeckCardList = "";
-            finalGeneratedCardList.Clear();
+            List<Card> finalDeckCardList = new List<Card>();
+            finalDeckCardList.Clear();
 
             List<Card> cardList = new List<Card>();
             int index = 0;
@@ -207,17 +207,17 @@ namespace HSGA
 
                     // Add last card to the list and validate it for legality
                     cardList.Add(currentCard);
-                    ValidateAndFixDeck(cardList, currentType);
+                    cardList = ValidateAndFixDeck(cardList, currentType);
 
                     // assemble the deck section of JSON string
                     for (int j = 0; j < cardList.Count; j++)
                     {
-                        finalGeneratedDeckCardList += "\t\"" + cardList[j]._CardID + "\"\n";
+                        finalGeneratedDeckCardList += "\t\"" + cardList[j]._CardID + "\",\n";
                     }
                    // finalGeneratedDeckCardList += "\t\"" + cardList[29]._CardID + "\"\n";
 
                     //generate deck name and hero class
-                    finalGeneratedDeckName = "geneDeck";
+                    finalGeneratedDeckName = "aGeneDeck";
 
                     finalGeneratedDeckClass = currentType;
                     // assemble the json string
@@ -228,7 +228,7 @@ namespace HSGA
                     GenerateDeckAsJson(finalDeck, filePath);
 
                     finalGeneratedDeck = finalDeck;
-                    finalGeneratedCardList = cardList;
+                    finalDeckCardList = cardList;
                     finalDeckString = finalGeneratedDeck;
                 }
                 if(i != 30)
@@ -250,11 +250,11 @@ namespace HSGA
                     cardCount++;
                 }
             }
-
-            return finalDeckString;
+            Tuple<string, List<Card>> t = new Tuple<string, List<Card>>(finalDeckString, finalDeckCardList);
+            return t;
 
         }
-
+       
 
         /// <summary>
         /// Validates the input card list by checking if the deck has max 2 per card,
@@ -271,6 +271,23 @@ namespace HSGA
             int prevCardCount = 0;
             int newNeutralCardIndex = 0;
             int newClassCardIndex = 0;
+
+           /* string firstChar = cardList[0]._CardID.Split('_')[0];
+            int d = cardList[0]._CardID.Split('_').Count();
+            string secondChar = cardList[0]._CardID.Split('_').Count() >= 3 ? cardList[0]._CardID.Split('_')[2] : cardList[0]._CardID.Split('_')[1];*/
+
+            // sort card list in alphabetical order
+            List<Card> test = cardList.OrderBy(Card => Card._CardID.Split('_')[1].ToCharArray()[0])
+                .ThenBy(Card => Card._CardID.Split('_').Count() >= 3 ? Card._CardID.Split('_')[2].ToCharArray()[0] : Card._CardID.Split('_')[1].ToCharArray()[0]).ToList();
+            cardList = test;
+
+            List <string> duplicatesList = new List<string>();
+            List<string> cards = new List<string>();
+
+            for (int i = 0; i < cardList.Count; i++)
+            {
+                cards.Add(cardList[i]._CardID);
+            }
 
             if (cardList.Count > 30)
             {
@@ -296,7 +313,8 @@ namespace HSGA
                     bool check = nextCard.Equals(cardToCompare);
 
                     List<Card> ClassCardList = allCardsList.GetDeckClassType(classType);
-                    newNeutralCardIndex = rand.Next(allCardsList.NeutralCardList.Count);
+                    List<Card> NeutralCardList = allCardsList.NeutralCardList;
+                    newNeutralCardIndex = rand.Next(NeutralCardList.Count);
                     newClassCardIndex = rand.Next(ClassCardList.Count);
 
                     // if the names are the same, increment the card counter
@@ -304,12 +322,25 @@ namespace HSGA
                     // legendary.
                     if (check == true)
                     {
-                        prevCardCount++;
+                        prevCardCount+= 2;
+                        duplicatesList.Add(cardList[l]._CardID);
                     }
+
+                    // remove all cards from both lists that are included in the current deck at least
+                    // 2+ times.
+                    for (int i = 0; i < duplicatesList.Count; i++)
+                    {
+                        ClassCardList.RemoveAll(Card => Card._CardID == duplicatesList[i]);
+                        NeutralCardList.RemoveAll(Card => Card._CardID == duplicatesList[i]);
+
+                        allCardsList.GetDeckClassType(classType).RemoveAll(Card => Card._CardID == duplicatesList[i]);
+                        allCardsList.NeutralCardList.RemoveAll(Card => Card._CardID == duplicatesList[i]);
+                    }
+
                     if (prevCardCount > 2)
                     {
-                        // remove the unecessary duplicate and replace it
-
+                        newNeutralCardIndex = rand.Next(NeutralCardList.Count);
+                        newClassCardIndex = rand.Next(ClassCardList.Count);
 
                         Card newNeutralCard;
                         Card newClassCard;
@@ -330,11 +361,15 @@ namespace HSGA
                         }
                         else if (cardTypeChosen == false)
                         {
-                            if (cardList[l]._CardID == newClassCard._CardID || cardList[l]._CardFileName == newClassCard._CardFileName)
+                            for(int i = 0; i < duplicatesList.Count; i++)
                             {
-                                newClassCard = ClassCardList[rand.Next(ClassCardList.Count)];
+                                if (cardList[l]._CardID == duplicatesList[i] || cardList[l]._CardFileName == duplicatesList[i])
+                                {
+                                    newClassCard = ClassCardList[rand.Next(ClassCardList.Count)];
 
+                                }
                             }
+
                         }
 
                         cardList.Remove(cardList[l]);
@@ -357,6 +392,9 @@ namespace HSGA
                         Card newClassCard;
                         bool cardTypeChosen = false;
 
+                        newNeutralCardIndex = rand.Next(NeutralCardList.Count);
+                        newClassCardIndex = rand.Next(ClassCardList.Count);
+
                         newNeutralCard = allCardsList.NeutralCardList[newNeutralCardIndex];
                         newClassCard = ClassCardList[newClassCardIndex];
                         cardTypeChosen = rand.Next(100) < 50 ? true : false;
@@ -390,9 +428,16 @@ namespace HSGA
                         }
 
                     }
-                }
-            }
 
+                }
+
+
+            }
+            cards.Clear();
+            for (int i = 0; i < cardList.Count; i++)
+            {
+                cards.Add(cardList[i]._CardID);
+            }
             return cardList;
         }
 
@@ -466,17 +511,30 @@ namespace HSGA
         /// <param name="filePath"></param>
         private void GenerateDeckAsJson(string deckString, string filePath)
         {
-            if(File.Exists(filePath + "\\geneDeck.json"))
+            string secondPath = "C:\\Users\\Elliott\\Documents\\metastone\\decks";
+            if (File.Exists(filePath + "\\aGeneDeck.json"))
             {
                 
-                File.Delete(filePath + "\\geneDeck.json");
+                File.Delete(filePath + "\\aGeneDeck.json");
             }
                        
-            using(StreamWriter file = File.CreateText(filePath + "\\geneDeck.json"))
+            using(StreamWriter file = File.CreateText(filePath + "\\aGeneDeck.json"))
             using(JsonTextWriter writer = new JsonTextWriter(file))
             {
                 writer.WriteRaw(deckString);
             }
+
+            // we also need to write the same file to a second directory
+            if(File.Exists(secondPath + "\\aGeneDeck.json"))
+            {
+                File.Delete(secondPath + "\\aGeneDeck.json");
+            }
+            using (StreamWriter file = File.CreateText(secondPath + "\\aGeneDeck.json"))
+            using (JsonTextWriter writer = new JsonTextWriter(file))
+            {
+                writer.WriteRaw(deckString);
+            }
+
         }
 
 

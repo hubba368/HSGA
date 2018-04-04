@@ -162,8 +162,12 @@ namespace HSGA
                 child2.cardList.Add(c);
             }*/
 
-            int point1 = rand.Next(0, parents[0].cardList.Count);
-            //int point2 = rand.Next(0, parents[1].cardList.Count);
+            int point1 = rand.Next(3, parents[0].cardList.Count);
+
+            if(point1 == 0)
+            {
+                //point1 = rand.Next()
+            }
 
             // need to replace item in list            
             for(int i = 0; i <= point1; i++)

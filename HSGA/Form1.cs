@@ -21,17 +21,17 @@ namespace HSGA
 
         public CardJsonManager JSONHandler;
 
-        public HSGAIndividual GeneIndividual;
         public List<HSGAIndividual> GenePopulation;
         public List<HSGAIndividual> newPopulation;
 
         private int _MaxPopulation = 2;
-        private float mutationProbability = 0.015f;
+        private float mutationProbability = 0.15f;
         private float similarCostProbability = 0.25f;
 
         private string selectedClass;
 
         private Random rand;
+        private int numOfFiles;
 
         public Form1()
         {
@@ -39,11 +39,10 @@ namespace HSGA
             JSONHandler = new CardJsonManager();
             GenePopulation = new List<HSGAIndividual>();
             newPopulation = new List<HSGAIndividual>();
-            GeneIndividual = new HSGAIndividual();
             rand = new Random();
 
             // deserialize all cards on startup
-            int numOfFiles = Directory.GetDirectories(initialDirectory, "*", SearchOption.TopDirectoryOnly).Length;
+            numOfFiles = Directory.GetDirectories(initialDirectory, "*", SearchOption.TopDirectoryOnly).Length;
             //deserialize all in directory
             JSONHandler.GetAllCards(numOfFiles, initialDirectory);
             //enable/disable the other buttons
@@ -87,9 +86,15 @@ namespace HSGA
             // test each individual in the population
             for(int i = 0; i < _MaxPopulation; i++)
             {
+                JSONHandler.GetAllCards(numOfFiles, initialDirectory);
+
+                HSGAIndividual GeneIndividual = new HSGAIndividual();
                 // Create the deck for the current individual.
-                GeneIndividual.deck = JSONHandler.GenerateSpecificDeck(selectedClass);
-                GeneIndividual.cardList = JSONHandler.finalGeneratedCardList;
+                Tuple<string, List<Card>> t = new Tuple<string, List<Card>>("", null);
+                t = JSONHandler.GenerateSpecificDeck(selectedClass);
+                GeneIndividual.deck = t.Item1;
+               // cList = JSONHandler.GetFinalDeckList();
+                GeneIndividual.cardList = t.Item2;
 
                 GeneFunctions gene = new GeneFunctions();
 
@@ -102,7 +107,7 @@ namespace HSGA
                 if(isLegal == true)
                 {
                     // test each individual against each hero class type.
-                    for (int opponentNum = 0; opponentNum < 8; opponentNum++)
+                    for (int opponentNum = 0; opponentNum < 9; opponentNum++)
                     {
                         // send over individual and opponent class numbers
                         GenerateMetastoneValues(comboBox1.SelectedIndex, opponentNum);
@@ -129,17 +134,46 @@ namespace HSGA
             }
         }
 
+        //TODO: check if everything works
+        // fix card at crossover point being replaced with card from second parent
+        // remember to grab all cards after mutating
+        // change selection to get one with lowest win rate prob
 
         private void ProduceNextGeneration()
         {
-            GeneFunctions gene = new GeneFunctions();
-            List<HSGAIndividual> parents = new List<HSGAIndividual>();
-            // select parents
-            parents.Add(gene.SelectIndividual(GenePopulation));
-            parents.Add(gene.SelectIndividual(GenePopulation));
-            //crossover
-            gene.Crossover(parents);
-            //mutation
+            List<string> cards = new List<string>();
+
+            while (newPopulation.Count != 10)
+            {
+                GeneFunctions gene = new GeneFunctions();
+                List<HSGAIndividual> parents = new List<HSGAIndividual>();
+                List<HSGAIndividual> children = new List<HSGAIndividual>();
+
+                // select parents
+                parents.Add(gene.SelectIndividual(GenePopulation));
+                parents.Add(gene.SelectIndividual(GenePopulation));
+                //crossover
+                children = gene.Crossover(parents);
+                //mutation
+                children[0].cardList = MutateIndividual(children[0].cardList);
+
+                cards.Clear();
+                for (int i = 0; i < children[0].cardList.Count; i++)
+                {
+                    cards.Add(children[0].cardList[i]._CardID);
+                }
+
+                children[1].cardList = MutateIndividual(children[1].cardList);
+
+                cards.Clear();
+                for (int i = 0; i < children[1].cardList.Count; i++)
+                {
+                    cards.Add(children[1].cardList[i]._CardID);
+                }
+                // add children to new population
+                newPopulation.Add(children[0]);
+                newPopulation.Add(children[1]);
+            }
         }
 
 
@@ -200,25 +234,142 @@ namespace HSGA
             }
         }
 
-
-        public HSGAIndividual MutateIndividual(HSGAIndividual ind)
+        // TODO add ability to mutate either neutral or class cards
+        private List<Card> MutateIndividual(List<Card> ind)
         {
-            // TODO: get new card, swap it with index in list
-            for (int i = 0; i < ind.cardList.Count; i++)
+            float sameClassProbability = 0.5f;
+            float chooseUpperOrLowerProb = 0.5f;
+
+            GetCurrentDeckDuplicates(ind, comboBox1.SelectedText);
+
+            for (int i = 0; i < ind.Count; i++)
             {
                 if (rand.NextDouble() <= mutationProbability)
                 {
+                    // select card of similar mana cost
                     if(rand.NextDouble() <= similarCostProbability)
                     {
-                      //  Card temp = JSONHandler.allCardsList.
+                        // select card from same class - either specific class or neutral
+                        if(rand.NextDouble() <= sameClassProbability)
+                        {
+                            List<Card> tempClassList = JSONHandler.allCardsList.GetDeckClassType(ind[i]._CardClassType);
+                            List<Card> tempNeutralList = JSONHandler.allCardsList.NeutralCardList;
+                            Card temp = new Card("","","","","","","");
+                            // get card upper and lower costs compared to actual cost
+                            int currentCardCost = int.Parse(ind[i]._CardCost);
+                            int lowerCardCost = currentCardCost - 1;
+                            int higherCardCost = currentCardCost + 1;
 
+                            if(currentCardCost == 1 || currentCardCost == 0)
+                            {
+                                lowerCardCost = 1;
+                            }
+                            if(currentCardCost >= 10)
+                            {
+                                // the tiny amount of cards that cost above 10 means
+                                // we can just set the upper cost to 10
+                                higherCardCost = 10;
+                            }
+                            // choose upper or lower cost
+                            if(rand.NextDouble() <= chooseUpperOrLowerProb)
+                            {
+                                // choose either class or neutral cards
+                                if(rand.NextDouble() <= 0.5)
+                                {
+                                    List<Card> t = tempClassList.FindAll(Card => int.Parse(Card._CardCost) == lowerCardCost);
+                                    temp = t[rand.Next(0, t.Count)];
+                                }
+                                else
+                                {
+                                    List<Card> t = tempNeutralList.FindAll(Card => int.Parse(Card._CardCost) == lowerCardCost);
+                                    temp = t[rand.Next(0, t.Count)];
+                                }
+                            }
+                            else
+                            {
+                                if (rand.NextDouble() <= 0.5)
+                                {
+                                    List<Card> t = tempClassList.FindAll(Card => int.Parse(Card._CardCost) == higherCardCost);
+                                    temp = t[rand.Next(0, t.Count)];
+                                }
+                                else
+                                {
+                                    List<Card> t = tempNeutralList.FindAll(Card => int.Parse(Card._CardCost) == higherCardCost);
+                                    temp = t[rand.Next(0, t.Count)];
+                                }
+                            }
+                            // replace current card with newly mutated card
+                            ind[i] = temp;
+                        }                    
                     }
+                    // select class at random
                     else
                     {
-
+                        if (rand.NextDouble() <= 0.5)
+                        {
+                            List<Card> tempList = JSONHandler.allCardsList.GetDeckClassType(ind[i]._CardClassType);
+                            Card temp = new Card("", "", "", "", "", "", "");
+                            temp = tempList[rand.Next(0, tempList.Count)];
+                            ind[i] = temp;
+                        }
+                        else
+                        {
+                            List<Card> tempList = JSONHandler.allCardsList.NeutralCardList;
+                            Card temp = new Card("", "", "", "", "", "", "");
+                            temp = tempList[rand.Next(0, tempList.Count)];
+                            ind[i] = temp;
+                        }
                     }
                 }
             }
+            return ind;
+        }
+
+        /// <summary>
+        /// Get the potential duplicates cards from the current deck
+        /// We need to remove them from the card pool so we dont accidentally mutate
+        /// and create an invalid deck.
+        /// </summary>
+        /// <param name="deckToCheck"></param>
+        /// <param name="classType"></param>
+        private void GetCurrentDeckDuplicates(List<Card> deckToCheck, string classType)
+        {
+            List<string> duplicatesList = new List<string>();
+            int prevCardCount = 0;
+
+            List<Card> test = deckToCheck.OrderBy(Card => Card._CardID.Split('_')[1].ToCharArray()[0])
+                .ThenBy(Card => Card._CardID.Split('_').Count() >= 3 ? Card._CardID.Split('_')[2].ToCharArray()[0] : Card._CardID.Split('_')[1].ToCharArray()[0]).ToList();
+            deckToCheck = test;
+
+            for (int j = 0; j < deckToCheck.Count - 1; j++)
+            {
+                string cardToCompare = deckToCheck[j]._CardID;
+                string cardToCompareRarity = deckToCheck[j]._CardRarity;
+
+                for (int l = j+1; l < deckToCheck.Count - 1; l++)
+                {
+                    // get the next card and rarity in the list
+                    string nextCard = deckToCheck[l]._CardID;
+                    string nextCardRarity = deckToCheck[l]._CardRarity;
+
+                    bool compareCheck = nextCard.Equals(cardToCompare);
+
+                    if (compareCheck == true)
+                    {
+                        prevCardCount += 2;
+                        duplicatesList.Add(deckToCheck[l]._CardID);
+                    }
+
+                    // remove all cards from both lists that are included in the current deck at least
+                    // 2+ times.
+                    for (int i = 0; i < duplicatesList.Count; i++)
+                    {
+                        JSONHandler.allCardsList.GetDeckClassType(classType).RemoveAll(Card => Card._CardID == duplicatesList[i]);
+                        JSONHandler.allCardsList.NeutralCardList.RemoveAll(Card => Card._CardID == duplicatesList[i]);
+                    }
+                }
+            }
+
         }
 
 
