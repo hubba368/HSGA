@@ -24,11 +24,13 @@ namespace HSGA
         public List<HSGAIndividual> GenePopulation;
         public List<HSGAIndividual> newPopulation;
 
+        private int _MaxGenerations = 50;
         private int _MaxPopulation = 2;
         private float mutationProbability = 0.15f;
         private float similarCostProbability = 0.25f;
 
         private string selectedClass;
+        string generationDirectory = "C:\\Users\\Elliott\\Documents\\Visual Studio 2017\\Projects\\HSGA\\Assets\\Generations";
 
         private Random rand;
         private int numOfFiles;
@@ -53,7 +55,9 @@ namespace HSGA
 
         private void GetAllCards_Click(object sender, EventArgs e)
         {
+            Directory.CreateDirectory(generationDirectory + "\\Generation" + 1);
             ProduceNextGeneration();
+            TestNewPopulation();
         }
 
 
@@ -64,11 +68,11 @@ namespace HSGA
         /// <param name="e"></param>
         private void GenDeckButton_Click(object sender, EventArgs e)
         {
-            JSONHandler.filePath = deckDirectory;
+            /*JSONHandler.filePath = deckDirectory;
             JSONHandler.GenerateRandomDeck();
 
             NeutralPathLabel.Text = JSONHandler.finalGeneratedDeck;
-            label1.Text = JSONHandler.cardCount.ToString();
+            label1.Text = JSONHandler.cardCount.ToString();*/
         }
 
 
@@ -79,12 +83,37 @@ namespace HSGA
         /// <param name="e"></param>
         private void GenInitialPopulationButton_Click(object sender, EventArgs e)
         {
+            DirectoryInfo di = new DirectoryInfo(generationDirectory);
+            foreach(DirectoryInfo file in di.EnumerateDirectories())
+            {
+                file.Delete(true);
+            }
+            
+            int currentGenerationNum = 0;
+
+            Directory.CreateDirectory(generationDirectory + "\\Generation" + currentGenerationNum);
+            ProduceInitialPopulation(currentGenerationNum);
+
+            for (currentGenerationNum = 1; currentGenerationNum < 50; currentGenerationNum++)
+            {
+                Directory.CreateDirectory(generationDirectory + "\\Generation" + currentGenerationNum);
+                ProduceNextGeneration();
+                TestNewPopulation();
+            }
+            if(currentGenerationNum == 50)
+            {
+                MessageBox.Show("Generation Complete.");
+            }
+        }
+
+        private void ProduceInitialPopulation(int initialGenNum)
+        {
             selectedClass = comboBox1.GetItemText(comboBox1.SelectedItem);
             JSONHandler.filePath = deckDirectory;
 
             // assemble the initial population
             // test each individual in the population
-            for(int i = 0; i < _MaxPopulation; i++)
+            for (int i = 0; i < _MaxPopulation; i++)
             {
                 JSONHandler.GetAllCards(numOfFiles, initialDirectory);
 
@@ -93,7 +122,7 @@ namespace HSGA
                 Tuple<string, List<Card>> t = new Tuple<string, List<Card>>("", null);
                 t = JSONHandler.GenerateSpecificDeck(selectedClass);
                 GeneIndividual.deck = t.Item1;
-               // cList = JSONHandler.GetFinalDeckList();
+                // cList = JSONHandler.GetFinalDeckList();
                 GeneIndividual.cardList = t.Item2;
 
                 GeneFunctions gene = new GeneFunctions();
@@ -104,10 +133,10 @@ namespace HSGA
 
 
                 //if deck isnt legal, no need to test it in metastone
-                if(isLegal == true)
+                if (isLegal == true)
                 {
                     // test each individual against each hero class type.
-                    for (int opponentNum = 0; opponentNum < 9; opponentNum++)
+                    for (int opponentNum = 0; opponentNum < 1; opponentNum++)
                     {
                         // send over individual and opponent class numbers
                         GenerateMetastoneValues(comboBox1.SelectedIndex, opponentNum);
@@ -119,7 +148,7 @@ namespace HSGA
                         Dictionary<string, float> currentStats = new Dictionary<string, float>();
                         currentStats = ParseMetastoneResults();
                         // accumulate current win rate per game.
-                        gene.CalculateAvgWinRate(currentStats);
+                        gene.CalculatePerGameStats(currentStats);
                     }
                 }
                 // calc fitness - fitness function
@@ -131,13 +160,21 @@ namespace HSGA
 
                 // Add the individual to the population
                 GenePopulation.Add(GeneIndividual);
+
+                // send individual stats to its correspondent folder.
+                using (StreamWriter w = File.CreateText(generationDirectory + "\\Generation" + initialGenNum +"\\Individual" + i + ".txt"))
+                {
+                    w.WriteLine("Win rate: " + GeneIndividual.winRateFitness);
+                    w.WriteLine("Legality: " + GeneIndividual.legalFitness);
+                    w.WriteLine("Standard Deviation: " + GeneIndividual.standardDeviationFitness);
+                }
             }
         }
 
         //TODO: check if everything works
-        // fix card at crossover point being replaced with card from second parent
+        // fix card at crossover point being replaced with card from second parent maybe
         // remember to grab all cards after mutating
-        // change selection to get one with lowest win rate prob
+        // string g = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
 
         private void ProduceNextGeneration()
         {
@@ -176,6 +213,61 @@ namespace HSGA
             }
         }
 
+        private void TestNewPopulation()
+        {
+            for (int i = 0; i < _MaxPopulation; i++)
+            {
+                // get back all the cards we removed from the lists during
+                // previous mutations/validations
+                JSONHandler.GetAllCards(numOfFiles, initialDirectory);
+
+                // Reassemble the deck string for the current individual.
+                newPopulation[i].deck = JSONHandler.GenerateDeckString(newPopulation[i], comboBox1.Text);
+
+                GeneFunctions gene = new GeneFunctions();
+
+                // check if deck is legal - dont really need to do it here
+                // because initial population will be legal regardless
+                bool isLegal = JSONHandler.ValidateDeck(newPopulation[i].cardList);
+
+                //if deck isnt legal, no need to test it in metastone
+                if (isLegal == true)
+                {
+                    // test each individual against each hero class type.
+                    for (int opponentNum = 0; opponentNum < 9; opponentNum++)
+                    {
+                        // send over individual and opponent class numbers
+                        GenerateMetastoneValues(comboBox1.SelectedIndex, opponentNum);
+                        // run gradlew run command in cmd in metastone directory
+                        GenerateAndValidatePopulation(newPopulation[i].deck);
+
+
+                        // retreive the sim stats from text file.
+                        Dictionary<string, float> currentStats = new Dictionary<string, float>();
+                        currentStats = ParseMetastoneResults();
+                        // accumulate current win rate per game.
+                        gene.CalculatePerGameStats(currentStats);
+                    }
+                }
+                // calc fitness - fitness function
+                // calc legality
+                gene.CalculateFitness(isLegal);
+                newPopulation[i].winRateFitness = gene.winRateFitness;
+                newPopulation[i].legalFitness = gene.legalityFitness;
+                newPopulation[i].standardDeviationFitness = gene.standardDeviationFitness;
+
+                // Add the individual to the population
+                GenePopulation.Add(newPopulation[i]);
+
+                // send individual stats to its correspondent folder.
+                using (StreamWriter w = File.CreateText(generationDirectory + "\\Generation" + newPopulation[i] + "\\Individual" + i + ".txt"))
+                {
+                    w.WriteLine("Win rate: " + newPopulation[i].winRateFitness);
+                    w.WriteLine("Legality: " + newPopulation[i].legalFitness);
+                    w.WriteLine("Standard Deviation: " + newPopulation[i].standardDeviationFitness);
+                }
+            }
+        }
 
         /// <summary>
         /// Retrieves post game stats which are generated as a text file
@@ -278,11 +370,29 @@ namespace HSGA
                                 {
                                     List<Card> t = tempClassList.FindAll(Card => int.Parse(Card._CardCost) == lowerCardCost);
                                     temp = t[rand.Next(0, t.Count)];
+                                    // if our temp list has no cards of required cost,
+                                    // choose at random
+                                    if (t.Count == 0)
+                                    {
+                                        temp = tempClassList[rand.Next(0, tempClassList.Count)];
+                                    }
+                                    else
+                                    {
+                                        temp = t[rand.Next(0, t.Count)];
+                                    }
                                 }
                                 else
                                 {
                                     List<Card> t = tempNeutralList.FindAll(Card => int.Parse(Card._CardCost) == lowerCardCost);
-                                    temp = t[rand.Next(0, t.Count)];
+
+                                    if (t.Count == 0)
+                                    {
+                                        temp = tempNeutralList[rand.Next(0, tempNeutralList.Count)];
+                                    }
+                                    else
+                                    {
+                                        temp = t[rand.Next(0, t.Count)];
+                                    }
                                 }
                             }
                             else
@@ -290,12 +400,27 @@ namespace HSGA
                                 if (rand.NextDouble() <= 0.5)
                                 {
                                     List<Card> t = tempClassList.FindAll(Card => int.Parse(Card._CardCost) == higherCardCost);
-                                    temp = t[rand.Next(0, t.Count)];
+                                    if(t.Count == 0)
+                                    {
+                                        temp = tempClassList[rand.Next(0, tempClassList.Count)];
+                                    }
+                                    else
+                                    {
+                                        temp = t[rand.Next(0, t.Count)];
+                                    }
                                 }
                                 else
                                 {
                                     List<Card> t = tempNeutralList.FindAll(Card => int.Parse(Card._CardCost) == higherCardCost);
-                                    temp = t[rand.Next(0, t.Count)];
+
+                                    if (t.Count == 0)
+                                    {
+                                        temp = tempNeutralList[rand.Next(0, tempNeutralList.Count)];
+                                    }
+                                    else
+                                    {
+                                        temp = t[rand.Next(0, t.Count)];
+                                    }
                                 }
                             }
                             // replace current card with newly mutated card

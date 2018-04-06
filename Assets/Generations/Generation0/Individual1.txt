@@ -1,0 +1,3 @@
+Win rate: 1.5625
+Legality: -1
+Standard Deviation: 6.25

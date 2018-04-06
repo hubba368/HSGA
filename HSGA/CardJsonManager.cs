@@ -185,6 +185,7 @@ namespace HSGA
             string currentType = heroClass.ToUpper();
             // Get the corresponding list of cards to pick from
             List<Card> randomList = allCardsList.ChooseSpecificList(currentType);
+            List<Card> neutralList = allCardsList.NeutralCardList;
 
             for (int i = 0; i < DECK_LENGTH + 1; i++)
             {
@@ -192,13 +193,25 @@ namespace HSGA
                 if (i == 30)
                 {
                     // if last card omit the comma at the end and finish
-                    index = rand.Next(randomList.Count);
-                    currentCard = randomList[index];
-
-                    if (currentCard._CardID == null)
+                    if(rand.NextDouble() >= 0.5)
                     {
-                        // check if last card has valid id
-                        currentCard._CardID = randomList[index]._CardFileName;
+                        index = rand.Next(neutralList.Count);
+                        currentCard = neutralList[index];
+                        if (currentCard._CardID == null)
+                        {
+                            currentCard._CardID = neutralList[index]._CardFileName;
+                        }
+                    }
+                    else
+                    {
+                        index = rand.Next(randomList.Count);
+                        currentCard = randomList[index];
+
+                        if (currentCard._CardID == null)
+                        {
+                            // check if last card has valid id
+                            currentCard._CardID = randomList[index]._CardFileName;
+                        }
                     }
 
                     currentCardName = currentCard._CardID;
@@ -209,10 +222,11 @@ namespace HSGA
                     cardList.Add(currentCard);
                     cardList = ValidateAndFixDeck(cardList, currentType);
 
+                    string finalCardList = "";
                     // assemble the deck section of JSON string
                     for (int j = 0; j < cardList.Count; j++)
                     {
-                        finalGeneratedDeckCardList += "\t\"" + cardList[j]._CardID + "\",\n";
+                        finalCardList += "\t\"" + cardList[j]._CardID + "\",\n";
                     }
                    // finalGeneratedDeckCardList += "\t\"" + cardList[29]._CardID + "\"\n";
 
@@ -222,7 +236,7 @@ namespace HSGA
                     finalGeneratedDeckClass = currentType;
                     // assemble the json string
                     string finalDeck = "";
-                    finalDeck = "{\n  \"cards\": [\n" + finalGeneratedDeckCardList + "  ],\n    \"name\": \"" 
+                    finalDeck = "{\n  \"cards\": [\n" + finalCardList + "  ],\n    \"name\": \"" 
                         + finalGeneratedDeckName + "\",\n    \"heroClass\": \"" 
                         + finalGeneratedDeckClass + "\",\n    \"arbitrary\": false\n}";
                     GenerateDeckAsJson(finalDeck, filePath);
@@ -234,17 +248,30 @@ namespace HSGA
                 if(i != 30)
                 {
                     //grab a card at psuedo random 
-                    index = rand.Next(randomList.Count);
-                    currentCard = randomList[index];
+                    // choose either class or neutral cards at random
+                    if (rand.NextDouble() >= 0.5)
+                    {
+                        index = rand.Next(neutralList.Count);
+                        currentCard = neutralList[index];
+                        if (currentCard._CardID == null)
+                        {
+                            currentCard._CardID = neutralList[index]._CardFileName;
+                        }
+                    }
+                    else
+                    {
+                        index = rand.Next(randomList.Count);
+                        currentCard = randomList[index];
+                        if (currentCard._CardID == null)
+                        {
+                            // some of the files have no ids, so use the file name instead
+                            currentCard._CardID = randomList[index]._CardFileName;
+                        }
+                    }
+
                     currentCardName = currentCard._CardID;
                     currentCardRarity = currentCard._CardRarity;
                     currentCardClassType = currentCard._CardType;
-
-                    if (currentCard._CardID == null)
-                    {
-                        // some of the files have no ids, so use the file name instead
-                        currentCard._CardID = randomList[index]._CardFileName;
-                    }
 
                     cardList.Add(currentCard);
                     cardCount++;
@@ -681,6 +708,25 @@ namespace HSGA
             }
         
     }
+
+
+        public string GenerateDeckString(HSGAIndividual ind, string classType)
+        {
+            string cardList = "";
+            string finalDeck = "";
+
+            for (int j = 0; j < ind.cardList.Count; j++)
+            {
+               cardList += "\t\"" + ind.cardList[j]._CardID + "\",\n";
+            }
+
+
+            finalDeck = "{\n  \"cards\": [\n" + cardList + "  ],\n    \"name\": \""
+                + finalGeneratedDeckName + "\",\n    \"heroClass\": \""
+                + classType.ToUpper() + "\",\n    \"arbitrary\": false\n}";
+            GenerateDeckAsJson(finalDeck, filePath);
+            return finalDeck;
+        }
 
         //DEBUG FUNCTIONS//
 

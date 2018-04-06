@@ -62,7 +62,7 @@ namespace HSGA
             standardDeviationFitness = (float)Math.Sqrt(sum);
         }
 
-        public void CalculateAvgWinRate(Dictionary<string, float> values)
+        public void CalculatePerGameStats(Dictionary<string, float> values)
         {
             //this is called for each game an individual plays
             float winRate = values["Winrate"];
@@ -72,7 +72,7 @@ namespace HSGA
 
         public HSGAIndividual SelectIndividual(List<HSGAIndividual> pop)
         {
-            float winRateSum = 0f;
+            /*float winRateSum = 0f;
             float legalitySum = 0f;
             float deviationSum = 0f;
 
@@ -81,43 +81,40 @@ namespace HSGA
                 winRateSum += pop[i].winRateFitness;
                 legalitySum += pop[i].legalFitness;
                 deviationSum += pop[i].standardDeviationFitness;
-            }
-            //binary tournament selection
-            // select 2 members from current population at random
-            int index = rand.Next(0, pop.Count);
-            HSGAIndividual parent1 = pop[index];
-            index = rand.Next(0, pop.Count);
-            HSGAIndividual parent2 = pop[index];
-
-            /* if(parent1 == parent2)
-             {
-                 index = rand.Next(0, pop.Count);
-                 parent1 = pop[index];
-             }*/
-
-            // todo get fitness values and compare distance from optimum values per individual
-            float p1WRProbability = optimumWinRate - parent1.winRateFitness;
-            float p2WRProbability = optimumWinRate - parent2.winRateFitness;
-            float p1SDProbability = optimumStandardDeviation - parent1.standardDeviationFitness;
-            float p2SDProbability = optimumStandardDeviation - parent2.standardDeviationFitness;
-            HSGAIndividual selectedParent = new HSGAIndividual();
+            }*/
 
             // check legality fitness first
-            // if one is not legal then select the other regardless
-            if(parent1.legalFitness > 0f || parent2.legalFitness > 0f)
+            // retrieve a new list of individuals which are legal
+            // we have no need of using illegal individuals 
+            // because their overall fitness will be too low.
+            List<HSGAIndividual> editedList = new List<HSGAIndividual>();
+            
+            for(int i = 0; i < pop.Count; i++)
             {
-                return null;
+                if(pop[i].legalFitness < 0)
+                {
+                    editedList.Add(pop[i]);
+                }
             }
 
-            if (parent1.legalFitness > 0f)
-            {
-                selectedParent = parent2;
-            }
-            if (parent2.legalFitness > 0f)
-            {
-                selectedParent = parent1;
-            }
+            //binary tournament selection
+            // select 2 members from current population at random
+            int index = rand.Next(0, editedList.Count);
+            HSGAIndividual parent1 = editedList[index];
+            index = rand.Next(0, editedList.Count);
+            HSGAIndividual parent2 = editedList[index];
+
+            // todo get fitness values and compare distance from optimum values per individual
+            float p1WRProbability = 0 + parent1.winRateFitness;
+            float p2WRProbability = 0 + parent2.winRateFitness;
+            float p1SDProbability = 0 + parent1.standardDeviationFitness;
+            float p2SDProbability = 0 + parent2.standardDeviationFitness;
+            HSGAIndividual selectedParent = new HSGAIndividual();
+
+
+
             // check other fitness
+            // we need the individual with the highest fitness
             if (p1WRProbability > p2WRProbability)
             {
                 if (p1SDProbability > p2SDProbability)
@@ -132,12 +129,22 @@ namespace HSGA
                     selectedParent = parent2;
                 }
             }
-            // if probabilities are the same, return either parent
+
             if (p1WRProbability == p2WRProbability)
             {
+                // if both values are the same, return either parent
                 if (p1SDProbability == p2SDProbability)
                 {
                     selectedParent = parent1;
+                }
+
+                if(p1SDProbability > p2SDProbability)
+                {
+                    selectedParent = parent1;
+                }
+                else
+                {
+                    selectedParent = parent2;
                 }
             }
 
