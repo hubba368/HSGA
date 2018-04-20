@@ -1,0 +1,35 @@
+Total Wins: 19
+Legality: -1
+Standard Deviation: 1.852592
+
+Decklist:
+minion_arcanosmith
+minion_angry_chicken
+minion_ancient_mage
+minion_abusive_sergeant
+minion_crazed_alchemist
+minion_chillwind_yeti
+minion_demolisher
+spell_frost_shock
+minion_frostwolf_warlord
+minion_harvest_golem
+minion_ironforge_rifleman
+minion_jinyu_waterspeaker
+minion_king_mukla
+minion_mountain_giant
+minion_menagerie_magician
+minion_murloc_raider
+minion_netherspite_historian
+minion_ogre_magi
+minion_onyxia
+minion_pantry_spider
+minion_sea_giant
+minion_spiked_hogrider
+minion_stampeding_kodo
+minion_stormwind_knight
+minion_silverback_patriarch
+minion_secretkeeper
+minion_the_curator
+spell_totemic_might
+minion_wrathion
+minion_ysera

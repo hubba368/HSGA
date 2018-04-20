@@ -1,0 +1,35 @@
+Total Wins: 0
+Legality: 1
+Standard Deviation: 0
+
+Decklist:
+minion_alexstrasza
+minion_angry_chicken
+minion_arcane_golem
+minion_big_game_hunter
+minion_chillwind_yeti
+minion_dust_devil
+minion_darkscale_healer
+minion_dark_iron_dwarf
+minion_defender_of_argus
+spell_earth_shock
+spell_forked_lightning
+minion_gruul
+minion_gruul
+minion_gadgetzan_socialite
+minion_gadgetzan_socialite
+minion_hozen_healer
+spell_maelstrom_portal
+minion_novice_engineer
+minion_netherspite_historian
+minion_onyxia
+minion_red_mana_wyrm
+minion_stonetusk_boar
+minion_sea_giant
+minion_stormwind_knight
+minion_stormwind_knight
+minion_sunwalker
+minion_secretkeeper
+spell_totemic_might
+minion_worgen_greaser
+minion_wrathion

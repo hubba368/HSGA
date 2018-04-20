@@ -1,0 +1,72 @@
+Total Wins:19.88889
+Standard Deviation Average:1.624247
+
+Best Individual:
+Total Wins:34
+Standard Deviation:2.09644
+Decklist:
+minion_alexstrasza
+minion_angry_chicken
+minion_arcane_golem
+minion_big_game_hunter
+minion_dread_corsair
+minion_dust_devil
+minion_darkscale_healer
+minion_dark_iron_dwarf
+minion_defender_of_argus
+spell_earth_shock
+minion_flesheating_ghoul
+minion_flesheating_ghoul
+spell_forked_lightning
+spell_forked_lightning
+minion_fel_orc_soulfiend
+minion_gruul
+minion_gadgetzan_socialite
+spell_maelstrom_portal
+minion_novice_engineer
+minion_netherspite_historian
+minion_onyxia
+minion_red_mana_wyrm
+minion_stonetusk_boar
+minion_sea_giant
+minion_stormwind_knight
+minion_stormwind_knight
+minion_sunwalker
+minion_secretkeeper
+spell_totemic_might
+minion_wrathion
+
+Worst Individual:
+Total Wins:0
+Standard Deviation:0
+Decklist:
+minion_alexstrasza
+minion_core_hound
+minion_arcane_golem
+minion_big_game_hunter
+minion_blood_knight
+minion_silver_hand_knight
+minion_dread_corsair
+minion_dust_devil
+minion_darkscale_healer
+minion_darkscale_healer
+minion_defender_of_argus
+minion_finja_the_flying_star
+minion_flesheating_ghoul
+minion_fel_orc_soulfiend
+minion_gruul
+minion_novice_engineer
+minion_pompous_thespian
+minion_leper_gnome
+minion_mad_bomber
+minion_mana_wraith
+minion_spiteful_smith
+minion_blubber_baron
+minion_gruul
+minion_prince_malchezaar
+minion_sea_giant
+minion_southsea_deckhand
+minion_secretkeeper
+spell_totemic_might
+minion_wrathion
+minion_ysera

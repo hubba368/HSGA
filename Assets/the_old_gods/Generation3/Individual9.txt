@@ -1,0 +1,35 @@
+Total Wins: 40
+Legality: -1
+Standard Deviation: 1.832491
+
+Decklist:
+minion_al_akir_the_windlord
+minion_ancient_of_blossoms
+spell_feral_spirit
+minion_acidic_swamp_ooze
+spell_call_in_the_finishers
+minion_doomsayer
+minion_harvest_golem
+minion_violet_illusionist
+minion_genzo_the_shark
+minion_illidan_stormrage
+weapon_jade_claws
+spell_jade_lightning
+minion_lotus_illusionist
+minion_mana_addict
+minion_mad_bomber
+minion_the_black_knight
+minion_millhouse_manastorm
+spell_maelstrom_portal
+minion_windfury_harpy
+minion_captain_greenskin
+minion_mana_tide_totem
+minion_netherspite_historian
+minion_river_crocolisk
+spell_rockbiter_weapon
+minion_small-time_buccaneer
+minion_scarlet_crusader
+weapon_spirit_claws
+minion_spiked_hogrider
+minion_violet_teacher
+minion_windspeaker

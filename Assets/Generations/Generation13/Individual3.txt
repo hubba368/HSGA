@@ -1,0 +1,35 @@
+Total Wins: 18
+Legality: -1
+Standard Deviation: 1.699673
+
+Decklist:
+minion_daring_reporter
+minion_earthen_ring_farseer
+minion_ancient_mage
+minion_ancient_of_blossoms
+minion_abusive_sergeant
+minion_big-time_racketeer
+minion_bloodmage_thalnos
+minion_coldlight_seer
+minion_fire_elemental
+spell_frost_shock
+minion_abusive_sergeant
+minion_mayor_noggenfogger
+minion_fen_creeper
+spell_finders_keepers
+spell_forked_lightning
+minion_backstreet_leper
+minion_knife_juggler
+spell_hex
+minion_jade_chieftain
+minion_jade_chieftain
+spell_jade_lightning
+minion_red_mana_wyrm
+minion_runic_egg
+minion_second-rate_bruiser
+minion_stormpike_commando
+minion_scarlet_crusader
+minion_sea_giant
+minion_shattered_sun_cleric
+minion_tauren_warrior
+minion_violet_teacher

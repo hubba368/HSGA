@@ -1,0 +1,35 @@
+Total Wins: 34
+Legality: -1
+Standard Deviation: 2.393407
+
+Decklist:
+minion_alexstrasza
+minion_alarm-o-bot
+minion_netherspite_historian
+minion_big-time_racketeer
+minion_cairne_bloodhoof
+minion_doomsayer
+minion_patches_the_pirate
+minion_frost_elemental
+minion_harvest_golem
+minion_frostwolf_grunt
+minion_jungle_panther
+minion_dirty_rat
+minion_hogger
+minion_magma_rager
+minion_harrison_jones
+minion_king_mukla
+minion_leatherclad_hogleader
+minion_molten_giant
+minion_bloodsail_corsair
+minion_dire_wolf_alpha
+minion_razorfen_hunter
+minion_ragnaros_the_firelord
+minion_stonetusk_boar
+minion_sea_giant
+minion_defender_of_argus
+minion_stampeding_kodo
+minion_spellbreaker
+minion_wrathion
+minion_pint-sized_summoner
+minion_ysera

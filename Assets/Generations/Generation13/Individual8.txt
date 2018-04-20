@@ -1,0 +1,35 @@
+Total Wins: 13
+Legality: -1
+Standard Deviation: 1.640536
+
+Decklist:
+minion_arcanosmith
+minion_alexstrasza
+minion_angry_chicken
+minion_arcane_giant
+minion_ancient_mage
+minion_abusive_sergeant
+minion_crazed_alchemist
+minion_coldlight_oracle
+minion_coldlight_seer
+minion_demolisher
+minion_earthen_ring_farseer
+minion_friendly_bartender
+spell_finders_keepers
+spell_forked_lightning
+minion_fel_orc_soulfiend
+spell_hex
+minion_jade_chieftain
+spell_jade_lightning
+minion_mountain_giant
+minion_murloc_tidecaller
+minion_patches_the_pirate
+minion_master_swordsmith
+minion_malygos
+minion_sea_giant
+minion_shieldbearer
+minion_tauren_warrior
+minion_violet_teacher
+minion_worgen_infiltrator
+minion_wrathion
+minion_young_dragonhawk

@@ -1,0 +1,35 @@
+Total Wins: 44
+Legality: -1
+Standard Deviation: 2.726187
+
+Decklist:
+minion_alexstrasza
+minion_al_akir_the_windlord
+spell_ancestral_healing
+spell_bloodlust
+minion_baron_geddon
+minion_book_wyrm
+minion_core_hound
+minion_doppelgangster
+minion_deathwing
+minion_dark_iron_dwarf
+minion_emperor_cobra
+spell_earth_shock
+spell_earth_shock
+minion_frost_elemental
+minion_fel_orc_soulfiend
+minion_flametongue_totem
+minion_goldshire_footman
+minion_grook_fu_master
+minion_harvest_golem
+weapon_jade_claws
+minion_jade_chieftain
+minion_jade_chieftain
+spell_jade_lightning
+minion_jinyu_waterspeaker
+minion_lotus_illusionist
+minion_pompous_thespian
+weapon_stormforged_axe
+minion_spiteful_smith
+minion_the_black_knight
+minion_zoobot

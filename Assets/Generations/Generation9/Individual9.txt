@@ -1,0 +1,35 @@
+Total Wins: 29
+Legality: -1
+Standard Deviation: 2.572408
+
+Decklist:
+minion_alexstrasza
+minion_al_akir_the_windlord
+minion_secretkeeper
+minion_arcane_golem
+minion_big_game_hunter
+minion_dark_iron_dwarf
+minion_dread_corsair
+minion_dust_devil
+minion_darkscale_healer
+minion_defender_of_argus
+spell_earth_shock
+minion_faerie_dragon
+minion_flesheating_ghoul
+spell_forked_lightning
+minion_fel_orc_soulfiend
+minion_gruul
+minion_gadgetzan_socialite
+minion_mad_bomber
+spell_maelstrom_portal
+minion_novice_engineer
+minion_netherspite_historian
+minion_onyxia
+minion_red_mana_wyrm
+minion_sea_giant
+minion_stormwind_knight
+minion_sunwalker
+minion_secretkeeper
+spell_totemic_might
+minion_wrathion
+minion_stonetusk_boar

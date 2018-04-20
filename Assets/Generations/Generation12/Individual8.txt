@@ -1,0 +1,35 @@
+Total Wins: 16
+Legality: -1
+Standard Deviation: 1.474056
+
+Decklist:
+spell_WINDFURY
+minion_azure_drake
+minion_abusive_sergeant
+minion_argent_squire
+minion_bloodsail_corsair
+minion_big_game_hunter
+minion_bloodmage_thalnos
+minion_coldlight_oracle
+minion_daring_reporter
+minion_earthen_ring_farseer
+minion_ironforge_rifleman
+minion_jungle_panther
+minion_knife_juggler
+minion_king_mukla
+minion_molten_giant
+minion_moroes
+minion_naga_corsair
+minion_netherspite_historian
+minion_netherspite_historian
+minion_onyxia
+minion_sea_giant
+minion_spiked_hogrider
+minion_stormwind_knight
+minion_senjin_shieldmasta
+minion_sunwalker
+minion_secretkeeper
+minion_the_curator
+spell_totemic_might
+minion_wrathion
+minion_ysera

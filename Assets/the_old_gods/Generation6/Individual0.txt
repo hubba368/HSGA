@@ -1,0 +1,35 @@
+Total Wins: 45
+Legality: -1
+Standard Deviation: 2.160247
+
+Decklist:
+spell_WINDFURY
+minion_alexstrasza
+minion_alarm-o-bot
+minion_acolyte_of_pain
+minion_captain_greenskin
+minion_deathwing
+minion_doomsayer
+minion_daring_reporter
+minion_earth_elemental
+minion_faceless_manipulator
+spell_feral_spirit
+minion_hungry_crab
+minion_hired_gun
+weapon_jade_claws
+minion_jungle_panther
+minion_knife_juggler
+minion_loot_hoarder
+minion_mana_addict
+minion_molten_giant
+minion_mistress_of_mixtures
+minion_nightblade
+minion_ravenholdt_assassin
+minion_reckless_rocketeer
+spell_rockbiter_weapon
+weapon_spirit_claws
+minion_senjin_shieldmasta
+minion_twilight_drake
+minion_venture_co_mercenary
+minion_windspeaker
+minion_zoobot

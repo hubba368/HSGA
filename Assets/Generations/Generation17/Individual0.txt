@@ -1,0 +1,35 @@
+Total Wins: 34
+Legality: -1
+Standard Deviation: 2.298685
+
+Decklist:
+minion_argent_squire
+minion_baron_geddon
+minion_backstreet_leper
+minion_blowgill_sniper
+minion_cairne_bloodhoof
+minion_doppelgangster
+minion_doppelgangster
+minion_defender_of_argus
+minion_fen_creeper
+spell_frost_shock
+minion_gadgetzan_auctioneer
+minion_harvest_golem
+minion_harrison_jones
+minion_ironforge_rifleman
+minion_jungle_panther
+minion_king_mukla
+minion_ogre_magi
+minion_onyxia
+minion_red_mana_wyrm
+weapon_spirit_claws
+minion_sea_giant
+minion_sea_giant
+minion_spiked_hogrider
+minion_stampeding_kodo
+minion_stormwind_knight
+minion_spellbreaker
+minion_sunwalker
+minion_tanaris_hogchopper
+minion_wrathion
+minion_ysera

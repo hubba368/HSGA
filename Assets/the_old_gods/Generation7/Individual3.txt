@@ -1,0 +1,35 @@
+Total Wins: 18
+Legality: -1
+Standard Deviation: 1.763834
+
+Decklist:
+minion_cairne_bloodhoof
+minion_alexstrasza
+minion_pint-sized_summoner
+minion_al_akir_the_windlord
+minion_blubber_baron
+minion_big_game_hunter
+minion_azure_drake
+minion_lightwarden
+minion_faerie_dragon
+minion_river_crocolisk
+minion_acidic_swamp_ooze
+minion_gurubashi_berserker
+minion_goldshire_footman
+minion_harvest_golem
+weapon_jade_claws
+minion_master_swordsmith
+minion_mana_wraith
+minion_netherspite_historian
+minion_onyxia
+minion_acolyte_of_pain
+minion_river_crocolisk
+minion_red_mana_wyrm
+spell_rockbiter_weapon
+minion_stormwind_champion
+minion_harvest_golem
+minion_the_black_knight
+minion_stormwind_knight
+minion_windfury_harpy
+minion_wicked_witchdoctor
+minion_wicked_witchdoctor

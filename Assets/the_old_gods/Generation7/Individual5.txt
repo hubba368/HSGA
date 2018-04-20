@@ -1,0 +1,35 @@
+Total Wins: 17
+Legality: -1
+Standard Deviation: 1.448712
+
+Decklist:
+weapon_spirit_claws
+minion_alexstrasza
+minion_pint-sized_summoner
+spell_bloodlust
+minion_war_golem
+minion_sunfury_protector
+minion_azure_drake
+minion_elven_archer
+minion_ancient_brewmaster
+spell_finders_keepers
+minion_acidic_swamp_ooze
+minion_gurubashi_berserker
+minion_goldshire_footman
+minion_goldshire_footman
+weapon_jade_claws
+spell_ancestral_spirit
+minion_jade_chieftain
+spell_jade_lightning
+minion_onyxia
+minion_pantry_spider
+minion_river_crocolisk
+minion_red_mana_wyrm
+minion_white_eyes
+minion_windspeaker
+minion_raging_worgen
+minion_raid_leader
+minion_stranglethorn_tiger
+minion_windfury_harpy
+minion_wicked_witchdoctor
+minion_wicked_witchdoctor

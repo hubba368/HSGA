@@ -1,0 +1,35 @@
+Total Wins: 0
+Legality: 1
+Standard Deviation: 0
+
+Decklist:
+spell_WINDFURY
+minion_alexstrasza
+minion_coldlight_oracle
+minion_bloodsail_raider
+minion_backstreet_leper
+minion_cairne_bloodhoof
+minion_chillwind_yeti
+minion_doomsayer
+minion_fen_creeper
+minion_fire_elemental
+spell_frost_shock
+minion_ironforge_rifleman
+minion_jungle_panther
+minion_knife_juggler
+minion_king_mukla
+minion_molten_giant
+minion_moroes
+minion_netherspite_historian
+minion_alexstrasza
+minion_netherspite_historian
+minion_red_mana_wyrm
+minion_sea_giant
+minion_streetwise_investigator
+minion_stormwind_knight
+minion_sunwalker
+minion_secretkeeper
+minion_the_curator
+spell_totemic_might
+minion_wrathion
+minion_ysera

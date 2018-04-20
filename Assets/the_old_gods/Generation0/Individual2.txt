@@ -1,0 +1,35 @@
+Total Wins: 14
+Legality: -1
+Standard Deviation: 1.77082
+
+Decklist:
+minion_azure_drake
+spell_ancestral_healing
+minion_acolyte_of_pain
+minion_acolyte_of_pain
+minion_bomb_squad
+spell_call_in_the_finishers
+minion_azure_drake
+minion_demolisher
+minion_earth_elemental
+spell_earth_shock
+spell_earth_shock
+minion_fire_elemental
+spell_finders_keepers
+minion_gruul
+minion_jade_chieftain
+weapon_jade_claws
+spell_lightning_bolt
+spell_lava_burst
+minion_white_eyes
+minion_leeroy_jenkins
+minion_novice_engineer
+minion_river_crocolisk
+weapon_stormforged_axe
+minion_southsea_captain
+minion_silverback_patriarch
+minion_sunwalker
+minion_violet_teacher
+minion_wind-up_burglebot
+minion_windspeaker
+minion_wolfrider

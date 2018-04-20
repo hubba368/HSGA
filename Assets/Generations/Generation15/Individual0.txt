@@ -1,0 +1,35 @@
+Total Wins: 31
+Legality: -1
+Standard Deviation: 2.060804
+
+Decklist:
+spell_WINDFURY
+minion_alarm-o-bot
+minion_arcane_anomaly
+minion_arcane_golem
+spell_ancestral_healing
+minion_backstreet_leper
+minion_doomsayer
+minion_doppelgangster
+minion_fire_elemental
+spell_frost_shock
+minion_gadgetzan_auctioneer
+minion_ironforge_rifleman
+minion_loot_hoarder
+minion_mad_bomber
+minion_murloc_raider
+minion_ogre_magi
+minion_onyxia
+minion_priestess_of_elune
+minion_pint-sized_summoner
+minion_questing_adventurer
+minion_red_mana_wyrm
+minion_sea_giant
+minion_spiked_hogrider
+minion_stormwind_knight
+minion_silverback_patriarch
+minion_secretkeeper
+minion_sunwalker
+minion_secretkeeper
+minion_the_curator
+minion_ysera

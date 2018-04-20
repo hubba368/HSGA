@@ -1,0 +1,72 @@
+Total Wins:20.44444
+Standard Deviation Average:1.853671
+
+Best Individual:
+Total Wins:32
+Standard Deviation:2.114033
+Decklist:
+minion_alexstrasza
+minion_arcanosmith
+minion_angry_chicken
+minion_ancient_mage
+minion_ancient_mage
+minion_cairne_bloodhoof
+minion_chillwind_yeti
+minion_doomsayer
+minion_fen_creeper
+minion_fire_elemental
+spell_frost_shock
+minion_harvest_golem
+minion_ironforge_rifleman
+weapon_jade_claws
+minion_jungle_panther
+minion_king_mukla
+minion_molten_giant
+minion_netherspite_historian
+minion_onyxia
+minion_pantry_spider
+minion_red_mana_wyrm
+minion_spiked_hogrider
+minion_stormwind_knight
+minion_street_trickster
+minion_stranglethorn_tiger
+minion_the_black_knight
+minion_the_curator
+minion_windfury_harpy
+minion_wicked_witchdoctor
+minion_wicked_witchdoctor
+
+Worst Individual:
+Total Wins:0
+Standard Deviation:0
+Decklist:
+minion_acolyte_of_pain
+minion_al_akir_the_windlord
+minion_angry_chicken
+minion_arcane_golem
+minion_book_wyrm
+minion_dark_iron_dwarf
+minion_dread_corsair
+minion_small-time_buccaneer
+minion_darkscale_healer
+minion_defender_of_argus
+spell_earth_shock
+minion_faerie_dragon
+minion_flesheating_ghoul
+spell_forked_lightning
+minion_fel_orc_soulfiend
+minion_gruul
+minion_raid_leader
+minion_emperor_cobra
+spell_lightning_bolt
+minion_novice_engineer
+minion_netherspite_historian
+minion_onyxia
+minion_red_mana_wyrm
+minion_sea_giant
+minion_stormwind_knight
+minion_sunwalker
+minion_secretkeeper
+spell_totemic_might
+minion_defias_cleaner
+minion_gruul

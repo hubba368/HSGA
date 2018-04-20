@@ -1,0 +1,72 @@
+Total Wins:18.77778
+Standard Deviation Average:1.233541
+
+Best Individual:
+Total Wins:52
+Standard Deviation:2.973131
+Decklist:
+minion_alexstrasza
+minion_al_akir_the_windlord
+spell_bloodlust
+minion_daring_reporter
+spell_call_in_the_finishers
+minion_doomsayer
+minion_dust_devil
+minion_dragonling_mechanic
+minion_earth_elemental
+minion_fire_elemental
+minion_flesheating_ghoul
+spell_finders_keepers
+weapon_jade_claws
+minion_jinyu_waterspeaker
+spell_lava_burst
+minion_master_swordsmith
+minion_lotus_illusionist
+minion_mad_bomber
+minion_mistress_of_mixtures
+spell_maelstrom_portal
+minion_fel_orc_soulfiend
+minion_netherspite_historian
+minion_reckless_rocketeer
+spell_ancestral_spirit
+minion_small-time_buccaneer
+minion_second-rate_bruiser
+minion_scarlet_crusader
+weapon_spirit_claws
+minion_venture_co_mercenary
+minion_faerie_dragon
+
+Worst Individual:
+Total Wins:0
+Standard Deviation:0
+Decklist:
+minion_amani_berserker
+minion_azure_drake
+minion_azure_drake
+minion_the_curator
+minion_lightwarden
+minion_bomb_squad
+minion_genzo_the_shark
+minion_the_curator
+minion_zoobot
+minion_chillwind_yeti
+minion_netherspite_historian
+spell_finders_keepers
+spell_earth_shock
+minion_fen_creeper
+minion_hozen_healer
+minion_jade_chieftain
+minion_earth_elemental
+spell_lava_burst
+minion_leatherclad_hogleader
+minion_leeroy_jenkins
+minion_doppelgangster
+minion_murloc_raider
+weapon_stormforged_axe
+minion_southsea_captain
+minion_silver_hand_knight
+minion_war_golem
+minion_core_hound
+minion_thrallmar_farseer
+minion_mind_control_tech
+spell_call_in_the_finishers

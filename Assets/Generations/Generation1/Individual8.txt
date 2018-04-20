@@ -1,0 +1,35 @@
+Total Wins: 47
+Legality: -1
+Standard Deviation: 2.199888
+
+Decklist:
+minion_alexstrasza
+minion_al_akir_the_windlord
+spell_bloodlust
+minion_daring_reporter
+spell_call_in_the_finishers
+minion_doomsayer
+minion_dust_devil
+minion_dragonling_mechanic
+minion_earth_elemental
+minion_fire_elemental
+minion_flesheating_ghoul
+spell_finders_keepers
+weapon_jade_claws
+minion_jinyu_waterspeaker
+spell_lava_burst
+minion_master_swordsmith
+minion_lotus_illusionist
+minion_mad_bomber
+minion_mistress_of_mixtures
+spell_maelstrom_portal
+minion_fel_orc_soulfiend
+minion_netherspite_historian
+minion_reckless_rocketeer
+spell_ancestral_spirit
+minion_small-time_buccaneer
+minion_second-rate_bruiser
+minion_scarlet_crusader
+weapon_spirit_claws
+minion_venture_co_mercenary
+minion_faerie_dragon

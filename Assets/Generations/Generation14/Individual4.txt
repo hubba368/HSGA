@@ -1,0 +1,35 @@
+Total Wins: 14
+Legality: -1
+Standard Deviation: 1.342561
+
+Decklist:
+minion_arcanosmith
+minion_angry_chicken
+minion_book_wyrm
+minion_doomsayer
+minion_demolisher
+minion_dragonling_mechanic
+minion_dragonling_mechanic
+minion_fen_creeper
+minion_frostwolf_grunt
+spell_finders_keepers
+spell_frost_shock
+minion_gnomish_inventor
+minion_grimscale_oracle
+minion_harvest_golem
+minion_harrison_jones
+minion_ironbeak_owl
+weapon_jade_claws
+minion_kooky_chemist
+minion_abusive_sergeant
+minion_moat_lurker
+minion_moat_lurker
+minion_magma_rager
+minion_murloc_tidehunter
+minion_nightblade
+minion_sunfury_protector
+minion_spellbreaker
+minion_the_black_knight
+minion_tanaris_hogchopper
+minion_wind-up_burglebot
+minion_wrathion

@@ -1,0 +1,35 @@
+Total Wins: 13
+Legality: -1
+Standard Deviation: 1.422917
+
+Decklist:
+spell_ancestral_healing
+spell_ancestral_spirit
+minion_abusive_sergeant
+spell_bloodlust
+spell_bloodlust
+spell_earth_shock
+minion_big_game_hunter
+spell_devolve
+minion_jinyu_waterspeaker
+spell_devolve
+minion_arcane_giant
+minion_earthen_ring_farseer
+spell_earth_shock
+minion_fire_elemental
+spell_far_sight
+spell_far_sight
+minion_flametongue_totem
+minion_gurubashi_berserker
+minion_grook_fu_master
+minion_harvest_golem
+minion_jade_chieftain
+minion_goldshire_footman
+minion_jade_chieftain
+spell_lava_burst
+minion_magma_rager
+minion_raid_leader
+weapon_stormforged_axe
+minion_frost_elemental
+minion_spellbreaker
+spell_totemic_might

@@ -1,0 +1,35 @@
+Total Wins: 38
+Legality: -1
+Standard Deviation: 3.083208
+
+Decklist:
+minion_alexstrasza
+minion_bloodsail_corsair
+minion_blowgill_sniper
+minion_cairne_bloodhoof
+minion_cult_master
+minion_dread_corsair
+minion_doomsayer
+minion_darkscale_healer
+minion_dirty_rat
+minion_fire_elemental
+minion_fel_orc_soulfiend
+spell_frost_shock
+minion_gadgetzan_auctioneer
+minion_harvest_golem
+minion_ogre_magi
+minion_onyxia
+minion_questing_adventurer
+minion_stormpike_commando
+minion_sea_giant
+minion_stormwind_knight
+minion_stormwind_knight
+minion_spiteful_smith
+minion_sunwalker
+minion_secretkeeper
+minion_sylvanas_windrunner
+minion_the_beast
+minion_the_curator
+minion_tanaris_hogchopper
+minion_weasel_tunneler
+minion_wrathion

@@ -1,0 +1,35 @@
+Total Wins: 0
+Legality: 1
+Standard Deviation: 0
+
+Decklist:
+minion_alexstrasza
+minion_alarm-o-bot
+minion_alexstrasza
+minion_acolyte_of_pain
+minion_argent_squire
+minion_barnes
+minion_bloodsail_corsair
+minion_blowgill_sniper
+minion_darkscale_healer
+minion_fire_elemental
+minion_fel_orc_soulfiend
+spell_frost_shock
+minion_gadgetzan_auctioneer
+minion_harvest_golem
+minion_ironforge_rifleman
+minion_leatherclad_hogleader
+minion_ogre_magi
+minion_onyxia
+minion_stormpike_commando
+minion_sea_giant
+minion_cult_master
+minion_stormwind_knight
+minion_spiteful_smith
+minion_sunwalker
+minion_secretkeeper
+minion_sylvanas_windrunner
+minion_the_beast
+minion_the_curator
+minion_tanaris_hogchopper
+minion_wrathion

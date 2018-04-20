@@ -1,0 +1,35 @@
+Total Wins: 22
+Legality: -1
+Standard Deviation: 2.21666
+
+Decklist:
+minion_blubber_baron
+minion_bloodsail_corsair
+spell_devolve
+minion_dark_iron_dwarf
+minion_daring_reporter
+minion_emperor_cobra
+minion_earth_elemental
+minion_earthen_ring_farseer
+minion_faerie_dragon
+minion_frostwolf_grunt
+minion_fel_orc_soulfiend
+minion_flametongue_totem
+minion_genzo_the_shark
+minion_imp_master
+spell_jade_lightning
+minion_jungle_panther
+minion_loot_hoarder
+minion_lotus_illusionist
+minion_mistress_of_mixtures
+minion_reckless_rocketeer
+spell_rockbiter_weapon
+weapon_spirit_claws
+minion_southsea_captain
+minion_senjin_shieldmasta
+minion_spiteful_smith
+minion_spellbreaker
+minion_venture_co_mercenary
+minion_windfury_harpy
+minion_windfury_harpy
+minion_windspeaker

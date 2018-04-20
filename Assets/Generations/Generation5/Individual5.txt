@@ -1,0 +1,35 @@
+Total Wins: 0
+Legality: 1
+Standard Deviation: 0
+
+Decklist:
+minion_al_akir_the_windlord
+minion_ancient_of_blossoms
+minion_acidic_swamp_ooze
+minion_gruul
+spell_finders_keepers
+minion_leatherclad_hogleader
+minion_patches_the_pirate
+minion_zoobot
+weapon_jade_claws
+spell_jade_lightning
+spell_lightning_storm
+spell_lightning_storm
+minion_deathwing
+minion_millhouse_manastorm
+minion_mana_tide_totem
+minion_boulderfist_ogre
+minion_patches_the_pirate
+minion_frostwolf_grunt
+minion_baron_geddon
+minion_abusive_sergeant
+spell_rockbiter_weapon
+minion_small-time_buccaneer
+minion_archmage
+minion_murloc_warleader
+minion_violet_teacher
+minion_windfury_harpy
+minion_dire_wolf_alpha
+minion_wicked_witchdoctor
+minion_wicked_witchdoctor
+minion_ysera

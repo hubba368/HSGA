@@ -1,0 +1,35 @@
+Total Wins: 38
+Legality: -1
+Standard Deviation: 1.812168
+
+Decklist:
+minion_knife_juggler
+minion_argent_commander
+spell_ancestral_healing
+minion_backstreet_leper
+minion_bloodsail_raider
+minion_book_wyrm
+minion_bluegill_warrior
+minion_bluegill_warrior
+weapon_doomhammer
+minion_jinyu_waterspeaker
+minion_defender_of_argus
+minion_earth_elemental
+spell_earth_shock
+spell_frost_shock
+spell_jade_lightning
+minion_lorewalker_cho
+minion_mountain_giant
+minion_mistress_of_mixtures
+minion_murloc_raider
+minion_mana_tide_totem
+minion_ogre_magi
+minion_priestess_of_elune
+minion_pompous_thespian
+weapon_stormforged_axe
+minion_priestess_of_elune
+weapon_spirit_claws
+minion_master_swordsmith
+minion_unbound_elemental
+minion_abomination
+minion_white_eyes

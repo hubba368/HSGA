@@ -1,0 +1,35 @@
+Total Wins: 25
+Legality: -1
+Standard Deviation: 1.685084
+
+Decklist:
+spell_ancestral_healing
+minion_blowgill_sniper
+minion_crazed_alchemist
+minion_chillwind_yeti
+minion_dust_devil
+spell_devolve
+minion_emperor_cobra
+spell_frost_shock
+minion_gadgetzan_auctioneer
+minion_gruul
+minion_ironforge_rifleman
+weapon_jade_claws
+minion_jade_chieftain
+weapon_jade_claws
+minion_knife_juggler
+minion_lightwarden
+minion_mind_control_tech
+minion_moroes
+minion_mana_tide_totem
+spell_frost_shock
+minion_mogushan_warden
+minion_ogre_magi
+minion_patches_the_pirate
+minion_reckless_rocketeer
+minion_silvermoon_guardian
+minion_stampeding_kodo
+minion_secretkeeper
+spell_totemic_might
+minion_venture_co_mercenary
+minion_violet_teacher

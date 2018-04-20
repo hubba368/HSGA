@@ -1,0 +1,35 @@
+Total Wins: 0
+Legality: 1
+Standard Deviation: 0
+
+Decklist:
+minion_amani_berserker
+minion_azure_drake
+minion_azure_drake
+minion_the_curator
+minion_lightwarden
+minion_bomb_squad
+minion_genzo_the_shark
+minion_the_curator
+minion_zoobot
+minion_chillwind_yeti
+minion_netherspite_historian
+spell_finders_keepers
+spell_earth_shock
+minion_fen_creeper
+minion_hozen_healer
+minion_jade_chieftain
+minion_earth_elemental
+spell_lava_burst
+minion_leatherclad_hogleader
+minion_leeroy_jenkins
+minion_doppelgangster
+minion_murloc_raider
+weapon_stormforged_axe
+minion_southsea_captain
+minion_silver_hand_knight
+minion_war_golem
+minion_core_hound
+minion_thrallmar_farseer
+minion_mind_control_tech
+spell_call_in_the_finishers

@@ -21,8 +21,6 @@ namespace HSGA
     // Retrieve end of sim statistics from metastone - DONE    
     //  - need to implement Individual class - DONE - requires fitness value variables
     // Automate the generation process - including the metastone testing - DONE
-
-    ///////////TODO/////////// - In order of most needed to be done
     // implement gen algo requirements: 
     //  - Fitness, crossover, selection, mutation function
     // Implement the genetic algorithm!!!!
@@ -30,11 +28,13 @@ namespace HSGA
     // stat collection - per generation and per individual
     // save the deck files in Metastone directory - change to auto find deck directory - can be worked around by having the metastone program in same folder as this solution.
 
+    ///////////TODO/////////// - In order of most needed to be done
+    // get avg generation stats
+    // maybe change crossover to two point crossover - better than single point
+    // also maybe look at roulette wheel
+
     /////QOL IMPROVEMENTS/////
-    // Allow resetting of the current displayed deck
-    // could do with editing the validation function to swap cards of specific class type
-    // could make initial deck creation have mix of neutral and class cards
-    // probably would do that when mutating gene decks though.
+
 
 
 
@@ -277,9 +277,74 @@ namespace HSGA
                     cardCount++;
                 }
             }
+            Console.WriteLine("Deck Generated.");
             Tuple<string, List<Card>> t = new Tuple<string, List<Card>>(finalDeckString, finalDeckCardList);
             return t;
 
+        }
+
+
+        public Tuple<string, List<Card>> RecreateIndividualFromFile(List<string> deck, string classType)
+        {
+            string finalDeckString = "";
+            List<Card> finalDeckCardList = new List<Card>();
+            finalDeckCardList.Clear();
+
+            List<Card> cardList = new List<Card>();
+            Card currentCard = new Card("", "", "", "", "", "", "");
+
+            string currentType = classType.ToUpper();
+            // Get the corresponding list of cards to pick from
+            List<Card> randomList = allCardsList.ChooseSpecificList(currentType);
+            List<Card> neutralList = allCardsList.NeutralCardList;
+
+            
+            // grab the next card
+            for (int j = 0; j < deck.Count; j++)
+            {
+                string currentID = deck[j];
+
+                List<Card> Classtemp = randomList.Where(Card => Card._CardID == currentID).ToList();
+                List<Card> Neutraltemp = neutralList.Where(Card => Card._CardID == currentID).ToList();
+
+                if(Classtemp.Count == 0)
+                {
+                    currentCard = Neutraltemp[0];
+                }
+                else
+                {
+                    currentCard = Classtemp[0];
+                }
+
+                cardList.Add(currentCard);
+            }
+
+            string finalCardList = "";
+            // assemble the deck section of JSON string
+            for (int j = 0; j < cardList.Count; j++)
+            {
+                finalCardList += "\t\"" + cardList[j]._CardID + "\",\n";
+            }
+            // finalGeneratedDeckCardList += "\t\"" + cardList[29]._CardID + "\"\n";
+
+            //generate deck name and hero class
+            finalGeneratedDeckName = "aGeneDeck";
+
+            finalGeneratedDeckClass = currentType;
+            // assemble the json string
+            string finalDeck = "";
+            finalDeck = "{\n  \"cards\": [\n" + finalCardList + "  ],\n    \"name\": \""
+                + finalGeneratedDeckName + "\",\n    \"heroClass\": \""
+                + finalGeneratedDeckClass + "\",\n    \"arbitrary\": false\n}";
+
+            finalGeneratedDeck = finalDeck;
+            finalDeckCardList = cardList;
+            finalDeckString = finalGeneratedDeck;
+
+
+            Console.WriteLine("Deck Recreated.");
+            Tuple<string, List<Card>> t = new Tuple<string, List<Card>>(finalDeckString, finalDeckCardList);
+            return t;
         }
        
 
@@ -536,7 +601,7 @@ namespace HSGA
         /// </summary>
         /// <param name="deckString"></param>
         /// <param name="filePath"></param>
-        private void GenerateDeckAsJson(string deckString, string filePath)
+        public void GenerateDeckAsJson(string deckString, string filePath)
         {
             string secondPath = "C:\\Users\\Elliott\\Documents\\metastone\\decks";
             if (File.Exists(filePath + "\\aGeneDeck.json"))
@@ -648,6 +713,11 @@ namespace HSGA
             
         }
 
+
+        public void RemoveAllCards()
+        {
+            allCardsList.DeleteAllLists();
+        }
 
         /// <summary>
         /// Retrieves all cards of a specific class.

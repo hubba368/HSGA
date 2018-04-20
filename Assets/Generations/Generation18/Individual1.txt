@@ -1,0 +1,35 @@
+Total Wins: 0
+Legality: 1
+Standard Deviation: 0
+
+Decklist:
+minion_alexstrasza
+minion_alarm-o-bot
+minion_baron_geddon
+minion_big-time_racketeer
+minion_cairne_bloodhoof
+minion_doomsayer
+minion_southsea_captain
+minion_frost_elemental
+minion_harvest_golem
+minion_harrison_jones
+minion_jungle_panther
+minion_frost_elemental
+minion_hogger
+minion_harvest_golem
+minion_harrison_jones
+minion_king_mukla
+minion_leatherclad_hogleader
+minion_molten_giant
+minion_murloc_tidecaller
+minion_prince_malchezaar
+minion_razorfen_hunter
+minion_ragnaros_the_firelord
+minion_mana_wraith
+minion_sea_giant
+minion_spiked_hogrider
+minion_mind_control_tech
+minion_spellbreaker
+minion_wrathion
+minion_young_dragonhawk
+minion_ragnaros_the_firelord

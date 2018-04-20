@@ -1,0 +1,72 @@
+Total Wins:16.11111
+Standard Deviation Average:1.302695
+
+Best Individual:
+Total Wins:39
+Standard Deviation:2.748737
+Decklist:
+spell_WINDFURY
+minion_alexstrasza
+minion_alarm-o-bot
+minion_argent_squire
+minion_backstreet_leper
+minion_cairne_bloodhoof
+minion_chillwind_yeti
+minion_doomsayer
+minion_fen_creeper
+minion_fire_elemental
+spell_frost_shock
+minion_harvest_golem
+minion_ironforge_rifleman
+minion_king_mukla
+minion_murloc_raider
+minion_netherspite_historian
+minion_onyxia
+minion_pantry_spider
+minion_red_mana_wyrm
+minion_sea_giant
+minion_spiked_hogrider
+minion_stampeding_kodo
+minion_stormwind_knight
+minion_silverback_patriarch
+minion_sunwalker
+minion_secretkeeper
+minion_the_curator
+spell_totemic_might
+minion_wrathion
+minion_ysera
+
+Worst Individual:
+Total Wins:0
+Standard Deviation:0
+Decklist:
+minion_sergeant_sally
+minion_alarm-o-bot
+minion_baron_geddon
+minion_bloodfen_raptor
+minion_raging_worgen
+minion_doppelgangster
+minion_darkscale_healer
+minion_nightblade
+minion_defender_of_argus
+spell_earth_shock
+minion_goldshire_footman
+minion_gadgetzan_socialite
+minion_shattered_sun_cleric
+minion_lord_of_the_arena
+minion_mad_bomber
+spell_maelstrom_portal
+minion_mana_wraith
+minion_netherspite_historian
+minion_nozdormu
+minion_ragnaros_the_firelord
+minion_moat_lurker
+minion_sea_giant
+minion_secretkeeper
+minion_secretkeeper
+minion_coldlight_seer
+minion_twilight_drake
+minion_finja_the_flying_star
+spell_totemic_might
+minion_wrathion
+minion_ragnaros_the_firelord

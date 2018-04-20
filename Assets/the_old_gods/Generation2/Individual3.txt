@@ -1,0 +1,35 @@
+Total Wins: 0
+Legality: 1
+Standard Deviation: 0
+
+Decklist:
+minion_alexstrasza
+minion_al_akir_the_windlord
+spell_bloodlust
+minion_hired_gun
+minion_madam_goya
+minion_argent_squire
+minion_dust_devil
+minion_dragonling_mechanic
+minion_earth_elemental
+minion_jade_chieftain
+minion_hungry_crab
+minion_earth_elemental
+weapon_jade_claws
+minion_jinyu_waterspeaker
+spell_lava_burst
+minion_master_swordsmith
+spell_devolve
+minion_mad_bomber
+minion_mistress_of_mixtures
+spell_maelstrom_portal
+minion_nightblade
+minion_netherspite_historian
+minion_ragnaros_the_firelord
+minion_dust_devil
+minion_booty_bay_bodyguard
+minion_senjin_shieldmasta
+minion_kobold_geomancer
+weapon_spirit_claws
+minion_alexstrasza
+minion_sunfury_protector

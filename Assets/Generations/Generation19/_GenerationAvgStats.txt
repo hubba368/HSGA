@@ -1,0 +1,72 @@
+Total Wins:29.11111
+Standard Deviation Average:2.237329
+
+Best Individual:
+Total Wins:37
+Standard Deviation:1.662959
+Decklist:
+minion_alarm-o-bot
+minion_alarm-o-bot
+minion_alexstrasza
+minion_acolyte_of_pain
+minion_argent_squire
+minion_barnes
+minion_bloodsail_corsair
+minion_blowgill_sniper
+minion_darkscale_healer
+minion_fire_elemental
+minion_fel_orc_soulfiend
+spell_frost_shock
+minion_gadgetzan_auctioneer
+minion_harvest_golem
+minion_ironforge_rifleman
+minion_leatherclad_hogleader
+minion_ogre_magi
+minion_onyxia
+minion_stormpike_commando
+minion_sea_giant
+minion_stormwind_knight
+minion_stormwind_knight
+minion_spiteful_smith
+minion_sunwalker
+minion_secretkeeper
+minion_sylvanas_windrunner
+minion_the_beast
+minion_the_curator
+minion_tanaris_hogchopper
+minion_wrathion
+
+Worst Individual:
+Total Wins:0
+Standard Deviation:0
+Decklist:
+minion_alarm-o-bot
+minion_archmage
+minion_arcane_anomaly
+minion_baron_geddon
+minion_doppelgangster
+minion_fen_creeper
+minion_fire_elemental
+minion_fel_orc_soulfiend
+spell_frost_shock
+minion_gadgetzan_auctioneer
+minion_gurubashi_berserker
+minion_harvest_golem
+minion_harvest_golem
+minion_leatherclad_hogleader
+minion_malygos
+minion_murloc_tidecaller
+minion_netherspite_historian
+minion_prince_malchezaar
+minion_ravenholdt_assassin
+minion_ragnaros_the_firelord
+minion_stonetusk_boar
+minion_stormpike_commando
+minion_sea_giant
+minion_spiked_hogrider
+minion_spellbreaker
+minion_sunwalker
+minion_wrathion
+minion_wrathion
+minion_ysera
+minion_zoobot

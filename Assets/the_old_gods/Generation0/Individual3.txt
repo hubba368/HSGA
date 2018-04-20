@@ -1,0 +1,35 @@
+Total Wins: 19
+Legality: -1
+Standard Deviation: 1.099944
+
+Decklist:
+minion_al_akir_the_windlord
+minion_defender_of_argus
+minion_ancient_brewmaster
+minion_abusive_sergeant
+minion_dust_devil
+minion_darkscale_healer
+minion_dark_iron_dwarf
+minion_fel_orc_soulfiend
+minion_fight_promoter
+spell_far_sight
+minion_frostwolf_warlord
+spell_frost_shock
+minion_harvest_golem
+minion_hozen_healer
+minion_imp_master
+weapon_jade_claws
+spell_jade_lightning
+minion_lorewalker_cho
+minion_lotus_illusionist
+minion_madam_goya
+spell_maelstrom_portal
+minion_mana_tide_totem
+minion_nat_pagle
+minion_river_crocolisk
+minion_raid_leader
+minion_reckless_rocketeer
+spell_rockbiter_weapon
+spell_rockbiter_weapon
+minion_spellbreaker
+spell_totemic_might

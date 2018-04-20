@@ -1,0 +1,72 @@
+Total Wins:24.77778
+Standard Deviation Average:1.959571
+
+Best Individual:
+Total Wins:42
+Standard Deviation:2.494438
+Decklist:
+minion_al_akir_the_windlord
+minion_abusive_sergeant
+minion_big_game_hunter
+minion_captain_greenskin
+minion_doomsayer
+minion_doomsayer
+minion_earth_elemental
+spell_feral_spirit
+minion_finja_the_flying_star
+minion_ironforge_rifleman
+weapon_jade_claws
+minion_jungle_panther
+minion_coldlight_seer
+minion_king_mukla
+minion_flesheating_ghoul
+minion_leeroy_jenkins
+minion_alarm-o-bot
+minion_mana_addict
+minion_menagerie_magician
+minion_murloc_raider
+minion_mana_wraith
+minion_netherspite_historian
+minion_oasis_snapjaw
+minion_pantry_spider
+minion_second-rate_bruiser
+minion_stormwind_champion
+minion_stormwind_champion
+minion_the_beast
+minion_windfury_harpy
+minion_wicked_witchdoctor
+
+Worst Individual:
+Total Wins:14
+Standard Deviation:1.257079
+Decklist:
+minion_alexstrasza
+minion_al_akir_the_windlord
+spell_ancestral_spirit
+minion_bloodsail_corsair
+minion_big_game_hunter
+minion_dread_corsair
+spell_finders_keepers
+spell_forked_lightning
+minion_faceless_manipulator
+minion_fel_orc_soulfiend
+minion_finja_the_flying_star
+minion_harvest_golem
+minion_imp_master
+minion_ironforge_rifleman
+spell_lava_burst
+minion_mana_addict
+minion_mana_wraith
+minion_netherspite_historian
+minion_nozdormu
+minion_onyxia
+minion_pantry_spider
+minion_red_mana_wyrm
+spell_rockbiter_weapon
+minion_stampeding_kodo
+minion_senjin_shieldmasta
+minion_shieldbearer
+minion_the_black_knight
+minion_windfury_harpy
+minion_wicked_witchdoctor
+minion_wicked_witchdoctor

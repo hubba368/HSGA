@@ -1,0 +1,72 @@
+Total Wins:29.44444
+Standard Deviation Average:2.011452
+
+Best Individual:
+Total Wins:41
+Standard Deviation:2.060804
+Decklist:
+minion_alexstrasza
+minion_amani_berserker
+minion_angry_chicken
+minion_azure_drake
+minion_baron_geddon
+minion_blood_knight
+minion_backstreet_leper
+minion_bloodsail_raider
+minion_bloodfen_raptor
+minion_goldshire_footman
+minion_gnomish_inventor
+minion_harvest_golem
+minion_harrison_jones
+minion_ironbeak_owl
+minion_violet_illusionist
+minion_magma_rager
+minion_murloc_raider
+minion_master_swordsmith
+minion_raging_worgen
+minion_sea_giant
+minion_stampeding_kodo
+minion_stampeding_kodo
+minion_stormwind_knight
+minion_spellbreaker
+minion_sunwalker
+minion_sunwalker
+minion_the_curator
+minion_wrathion
+minion_young_priestess
+minion_ysera
+
+Worst Individual:
+Total Wins:0
+Standard Deviation:0
+Decklist:
+minion_alexstrasza
+minion_alarm-o-bot
+minion_archmage
+minion_cairne_bloodhoof
+minion_cairne_bloodhoof
+minion_chillwind_yeti
+minion_dread_corsair
+minion_doomsayer
+minion_dark_iron_dwarf
+minion_dirty_rat
+minion_dire_wolf_alpha
+minion_frost_elemental
+minion_frostwolf_grunt
+minion_harvest_golem
+minion_hogger
+minion_harrison_jones
+minion_jungle_panther
+minion_king_mukla
+minion_leatherclad_hogleader
+minion_molten_giant
+minion_netherspite_historian
+minion_razorfen_hunter
+minion_raging_worgen
+minion_sea_giant
+minion_stormwind_knight
+minion_spellbreaker
+minion_sunwalker
+minion_the_curator
+minion_young_priestess
+minion_ysera

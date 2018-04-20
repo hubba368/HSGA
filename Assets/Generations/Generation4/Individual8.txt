@@ -1,0 +1,35 @@
+Total Wins: 25
+Legality: -1
+Standard Deviation: 1.617802
+
+Decklist:
+minion_ancient_brewmaster
+minion_arcane_golem
+minion_blubber_baron
+spell_devolve
+minion_dark_iron_dwarf
+minion_daring_reporter
+minion_emperor_cobra
+minion_earthen_ring_farseer
+minion_fire_elemental
+spell_far_sight
+minion_flametongue_totem
+minion_gurubashi_berserker
+minion_goldshire_footman
+minion_harvest_golem
+weapon_jade_claws
+minion_jade_chieftain
+minion_jade_chieftain
+spell_jade_lightning
+minion_jinyu_waterspeaker
+minion_lord_of_the_arena
+minion_malygos
+minion_naga_corsair
+minion_oasis_snapjaw
+minion_patches_the_pirate
+weapon_stormforged_axe
+minion_southsea_captain
+minion_spiteful_smith
+minion_the_black_knight
+minion_wicked_witchdoctor
+minion_wicked_witchdoctor

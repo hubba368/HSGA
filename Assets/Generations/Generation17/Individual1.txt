@@ -1,0 +1,35 @@
+Total Wins: 0
+Legality: 1
+Standard Deviation: 0
+
+Decklist:
+minion_alarm-o-bot
+minion_archmage
+minion_young_dragonhawk
+minion_barnes
+minion_fel_orc_soulfiend
+minion_murloc_tidecaller
+minion_doppelgangster
+minion_fire_elemental
+spell_frost_shock
+minion_finja_the_flying_star
+minion_gadgetzan_auctioneer
+minion_netherspite_historian
+minion_harvest_golem
+minion_harvest_golem
+minion_ironforge_rifleman
+minion_king_mukla
+minion_prince_malchezaar
+minion_razorfen_hunter
+minion_ragnaros_the_firelord
+minion_stonetusk_boar
+minion_stormpike_commando
+minion_leatherclad_hogleader
+minion_sunwalker
+minion_secretkeeper
+minion_silverback_patriarch
+minion_the_curator
+minion_frost_elemental
+minion_the_curator
+minion_wrathion
+minion_deathwing

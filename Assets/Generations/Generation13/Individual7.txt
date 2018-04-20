@@ -1,0 +1,35 @@
+Total Wins: 0
+Legality: 1
+Standard Deviation: 0
+
+Decklist:
+minion_arcanosmith
+minion_genzo_the_shark
+minion_goldshire_footman
+minion_ancient_mage
+minion_mogushan_warden
+minion_bloodfen_raptor
+minion_chillwind_yeti
+spell_frost_shock
+minion_frostwolf_warlord
+minion_leeroy_jenkins
+minion_mana_addict
+minion_ironforge_rifleman
+minion_jinyu_waterspeaker
+minion_king_mukla
+minion_mountain_giant
+minion_murloc_raider
+minion_naga_corsair
+minion_netherspite_historian
+minion_sergeant_sally
+minion_onyxia
+minion_sea_giant
+minion_second-rate_bruiser
+minion_stormwind_knight
+minion_sergeant_sally
+minion_stormpike_commando
+minion_secretkeeper
+minion_the_curator
+minion_lotus_illusionist
+minion_wrathion
+minion_ysera

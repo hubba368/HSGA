@@ -221,5 +221,19 @@ namespace HSGA
 
             return returnType;
         }
+
+        public void DeleteAllLists()
+        {
+            NeutralCardList.Clear();
+            DruidCardList.Clear();
+            MageCardList.Clear();
+            HunterCardList.Clear();
+            PaladinCardList.Clear();
+            PriestCardList.Clear();
+            RogueCardList.Clear();
+            ShamanCardList.Clear();
+            WarlockCardList.Clear();
+            WarriorCardList.Clear();
+        }
     }
 }

@@ -1,0 +1,35 @@
+Total Wins: 25
+Legality: -1
+Standard Deviation: 2.439389
+
+Decklist:
+spell_WINDFURY
+minion_al_akir_the_windlord
+spell_ancestral_healing
+spell_ancestral_spirit
+minion_blubber_baron
+minion_blood_knight
+minion_book_wyrm
+minion_core_hound
+spell_devolve
+minion_deathwing
+weapon_doomhammer
+spell_feral_spirit
+spell_feral_spirit
+spell_frost_shock
+minion_ironfur_grizzly
+spell_jade_lightning
+minion_jinyu_waterspeaker
+spell_lightning_bolt
+spell_lightning_bolt
+minion_leatherclad_hogleader
+minion_lotus_illusionist
+minion_millhouse_manastorm
+spell_maelstrom_portal
+minion_mana_wraith
+minion_spiked_hogrider
+minion_thrallmar_farseer
+minion_tanaris_hogchopper
+minion_voodoo_doctor
+minion_voodoo_doctor
+minion_wicked_witchdoctor

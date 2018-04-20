@@ -1,0 +1,35 @@
+Total Wins: 22
+Legality: -1
+Standard Deviation: 2.165954
+
+Decklist:
+spell_WINDFURY
+minion_alexstrasza
+minion_alarm-o-bot
+minion_ancient_brewmaster
+spell_bloodlust
+minion_bloodsail_corsair
+minion_spiked_hogrider
+minion_bloodmage_thalnos
+minion_defias_cleaner
+minion_dread_corsair
+minion_doppelgangster
+spell_forked_lightning
+minion_abomination
+minion_mad_bomber
+minion_mind_control_tech
+minion_millhouse_manastorm
+spell_maelstrom_portal
+minion_master_swordsmith
+minion_leeroy_jenkins
+minion_mana_addict
+minion_wrathion
+minion_mana_wraith
+minion_novice_engineer
+minion_netherspite_historian
+minion_fen_creeper
+minion_second-rate_bruiser
+minion_stormwind_champion
+minion_earthen_ring_farseer
+minion_sunwalker
+minion_violet_teacher

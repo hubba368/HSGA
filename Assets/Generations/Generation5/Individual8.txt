@@ -1,0 +1,35 @@
+Total Wins: 0
+Legality: 1
+Standard Deviation: 0
+
+Decklist:
+minion_earth_elemental
+minion_silver_hand_knight
+minion_al_akir_the_windlord
+minion_alexstrasza
+minion_moroes
+spell_bloodlust
+minion_blubber_baron
+minion_bloodsail_corsair
+spell_devolve
+minion_sylvanas_windrunner
+minion_faerie_dragon
+minion_madam_goya
+spell_forked_lightning
+minion_fel_orc_soulfiend
+minion_finja_the_flying_star
+minion_silvermoon_guardian
+minion_imp_master
+minion_illidan_stormrage
+minion_jungle_panther
+minion_loot_hoarder
+minion_injured_blademaster
+minion_magma_rager
+minion_mogushan_warden
+minion_stormwind_champion
+weapon_spirit_claws
+minion_senjin_shieldmasta
+minion_spiteful_smith
+minion_sylvanas_windrunner
+minion_weasel_tunneler
+minion_stonetusk_boar

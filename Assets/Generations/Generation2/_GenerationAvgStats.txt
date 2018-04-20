@@ -1,0 +1,72 @@
+Total Wins:31.55556
+Standard Deviation Average:1.966787
+
+Best Individual:
+Total Wins:46
+Standard Deviation:2.960647
+Decklist:
+minion_alexstrasza
+minion_al_akir_the_windlord
+spell_ancestral_spirit
+spell_bloodlust
+spell_call_in_the_finishers
+minion_doomsayer
+minion_mana_tide_totem
+minion_dust_devil
+minion_daring_reporter
+minion_earth_elemental
+minion_faerie_dragon
+minion_fire_elemental
+minion_flesheating_ghoul
+spell_jade_lightning
+minion_fel_orc_soulfiend
+weapon_jade_claws
+spell_lava_burst
+minion_lotus_illusionist
+minion_mad_bomber
+minion_menagerie_magician
+minion_millhouse_manastorm
+minion_mistress_of_mixtures
+spell_maelstrom_portal
+minion_master_swordsmith
+minion_netherspite_historian
+minion_reckless_rocketeer
+minion_small-time_buccaneer
+minion_second-rate_bruiser
+minion_scarlet_crusader
+weapon_spirit_claws
+
+Worst Individual:
+Total Wins:0
+Standard Deviation:0
+Decklist:
+minion_alexstrasza
+minion_al_akir_the_windlord
+spell_bloodlust
+minion_hired_gun
+minion_madam_goya
+minion_argent_squire
+minion_dust_devil
+minion_dragonling_mechanic
+minion_earth_elemental
+minion_jade_chieftain
+minion_hungry_crab
+minion_earth_elemental
+weapon_jade_claws
+minion_jinyu_waterspeaker
+spell_lava_burst
+minion_master_swordsmith
+spell_devolve
+minion_mad_bomber
+minion_mistress_of_mixtures
+spell_maelstrom_portal
+minion_nightblade
+minion_netherspite_historian
+minion_ragnaros_the_firelord
+minion_dust_devil
+minion_booty_bay_bodyguard
+minion_senjin_shieldmasta
+minion_kobold_geomancer
+weapon_spirit_claws
+minion_alexstrasza
+minion_sunfury_protector

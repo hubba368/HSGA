@@ -1,0 +1,35 @@
+Total Wins: 0
+Legality: 1
+Standard Deviation: 0
+
+Decklist:
+minion_sergeant_sally
+minion_alarm-o-bot
+minion_baron_geddon
+minion_bloodfen_raptor
+minion_raging_worgen
+minion_doppelgangster
+minion_darkscale_healer
+minion_nightblade
+minion_defender_of_argus
+spell_earth_shock
+minion_goldshire_footman
+minion_gadgetzan_socialite
+minion_shattered_sun_cleric
+minion_lord_of_the_arena
+minion_mad_bomber
+spell_maelstrom_portal
+minion_mana_wraith
+minion_netherspite_historian
+minion_nozdormu
+minion_ragnaros_the_firelord
+minion_moat_lurker
+minion_sea_giant
+minion_secretkeeper
+minion_secretkeeper
+minion_coldlight_seer
+minion_twilight_drake
+minion_finja_the_flying_star
+spell_totemic_might
+minion_wrathion
+minion_ragnaros_the_firelord

@@ -1,0 +1,35 @@
+Total Wins: 39
+Legality: -1
+Standard Deviation: 2.748737
+
+Decklist:
+spell_WINDFURY
+minion_alexstrasza
+minion_alarm-o-bot
+minion_argent_squire
+minion_backstreet_leper
+minion_cairne_bloodhoof
+minion_chillwind_yeti
+minion_doomsayer
+minion_fen_creeper
+minion_fire_elemental
+spell_frost_shock
+minion_harvest_golem
+minion_ironforge_rifleman
+minion_king_mukla
+minion_murloc_raider
+minion_netherspite_historian
+minion_onyxia
+minion_pantry_spider
+minion_red_mana_wyrm
+minion_sea_giant
+minion_spiked_hogrider
+minion_stampeding_kodo
+minion_stormwind_knight
+minion_silverback_patriarch
+minion_sunwalker
+minion_secretkeeper
+minion_the_curator
+spell_totemic_might
+minion_wrathion
+minion_ysera

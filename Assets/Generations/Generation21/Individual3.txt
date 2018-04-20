@@ -1,0 +1,35 @@
+Total Wins: 32
+Legality: -1
+Standard Deviation: 2.21666
+
+Decklist:
+minion_alarm-o-bot
+minion_defender_of_argus
+minion_alexstrasza
+minion_acolyte_of_pain
+minion_argent_squire
+minion_barnes
+minion_bloodsail_corsair
+minion_blowgill_sniper
+minion_darkscale_healer
+minion_fire_elemental
+minion_fel_orc_soulfiend
+spell_frost_shock
+minion_gadgetzan_auctioneer
+minion_harvest_golem
+minion_magma_rager
+minion_magma_rager
+minion_ogre_magi
+minion_razorfen_hunter
+minion_raging_worgen
+minion_silvermoon_guardian
+minion_sea_giant
+minion_spiked_hogrider
+minion_stormwind_knight
+minion_stampeding_kodo
+minion_shattered_sun_cleric
+minion_sunwalker
+minion_secretkeeper
+minion_sunwalker
+minion_the_curator
+minion_wrathion
