@@ -49,7 +49,7 @@ The Paladin class was tested with the following modifiers:
 
 * Population size of 10.
 * Mutation Rate of 0.02.
-* Single Point Crossover, with a crossover rate of 0.7.
+* Two Point Crossover, with a crossover rate of 0.7.
 * Maximum generation count of 10.
 * Tournament pool size of 6.
 
